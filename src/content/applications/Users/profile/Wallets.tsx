@@ -14,6 +14,8 @@ import {
 } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import bill1 from '../../../../assets/billing1.png';
+import bill2 from '../../../../assets/billing2.png';
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
@@ -26,10 +28,9 @@ const AvatarWrapper = styled(Avatar)(
     border-radius: 60px;
     height: ${theme.spacing(5.5)};
     width: ${theme.spacing(5.5)};
-    background: ${
-      theme.palette.mode === 'dark'
-        ? theme.colors.alpha.trueWhite[30]
-        : alpha(theme.colors.alpha.black[100], 0.07)
+    background: ${theme.palette.mode === 'dark'
+      ? theme.colors.alpha.trueWhite[30]
+      : alpha(theme.colors.alpha.black[100], 0.07)
     };
   
     img {
@@ -79,267 +80,147 @@ const CardAddAction = styled(Card)(
 function Wallets() {
   return (
     <>
-      
+
       <Grid container spacing={3}>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
+              color: 'white',
               px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              border: '2px solid gray',
+              background: 'transparent'
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  p: 6,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundImage: `url(${bill1})`,
+                  backgroundRepeat: 'no-repeat'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Media 01
+                <Typography variant="h2" noWrap>
+                  FREE
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
               </Box>
-              
-              <Typography  noWrap>
-                Picture PNG
+
+              <Typography variant="h4" noWrap>
+                $15
+              </Typography>
+              <Typography variant="h4" sx={{ color: '#E44B23', mt: 1 }}>
+                /month
+              </Typography>
+              <Typography variant="body1" sx={{ color: '#E44B23', mt: 2 }}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...
               </Typography>
               <Box
                 sx={{
-                  pt: 3
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
-                    <img
-                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
-                    />
+                <button style={{ marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
+              color: 'white',
               px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              border: '2px solid gray',
+              background: 'transparent'
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  p: 6,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundImage: `url(${bill2})`,
+                  backgroundRepeat: 'no-repeat'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Media 01
+                <Typography variant="h2" noWrap>
+                  FREE
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
               </Box>
-              
-              <Typography  noWrap>
-                Picture PNG
+
+              <Typography variant="h4" noWrap>
+                $15
+              </Typography>
+              <Typography variant="h4" sx={{ color: '#E44B23', mt: 1 }}>
+                /month
+              </Typography>
+              <Typography variant="body1" sx={{ color: '#E44B23', mt: 2 }}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...
               </Typography>
               <Box
                 sx={{
-                  pt: 3
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
-                    <img
-                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
-                    />
+                <button style={{ marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
+              color: 'white',
               px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              border: '2px solid gray',
+              background: 'transparent'
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  p: 6,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundImage: `url(${bill2})`,
+                  backgroundRepeat: 'no-repeat'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Media 01
+                <Typography variant="h2" noWrap>
+                  FREE
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
               </Box>
-              
-              <Typography  noWrap>
-                Picture PNG
+
+              <Typography variant="h4" noWrap>
+                $15
+              </Typography>
+              <Typography variant="h4" sx={{ color: '#E44B23', mt: 1 }}>
+                /month
+              </Typography>
+              <Typography variant="body1" sx={{ color: '#E44B23', mt: 2 }}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...
               </Typography>
               <Box
                 sx={{
-                  pt: 3
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
-                    <img
-                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
-                    />
+                <button style={{ marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-          <Grid xs={12} sm={6} md={4} item>
-          <Card
-            sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
-            }}
-          >
-            <CardContent>
-              <Box 
-                sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
-                }}
-              >
-                <Typography variant="h5" noWrap>
-                    Media 01
-                </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
-              </Box>
-              
-              <Typography  noWrap>
-                Picture PNG
-              </Typography>
-              <Box
-                sx={{
-                  pt: 3
-                }}
-              >
-                    <img
-                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
-                    />
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-          <Grid xs={12} sm={6} md={4} item>
-          <Card
-            sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
-            }}
-          >
-            <CardContent>
-              <Box 
-                sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
-                }}
-              >
-                <Typography variant="h5" noWrap>
-                    Media 01
-                </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
-              </Box>
-              
-              <Typography  noWrap>
-                Picture PNG
-              </Typography>
-              <Box
-                sx={{
-                  pt: 3
-                }}
-              >
-                    <img
-                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
-                    />
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-          <Grid xs={12} sm={6} md={4} item>
-          <Card
-            sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
-            }}
-          >
-            <CardContent>
-              <Box 
-                sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
-                }}
-              >
-                <Typography variant="h5" noWrap>
-                    Media 01
-                </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
-              </Box>
-              
-              <Typography  noWrap>
-                Picture PNG
-              </Typography>
-              <Box
-                sx={{
-                  pt: 3
-                }}
-              >
-                    <img
-                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
-                    />
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-          
+
       </Grid>
     </>
   );

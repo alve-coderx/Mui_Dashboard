@@ -6,7 +6,7 @@ import Wallets from './Wallets';
 
 function DashboardCrypto() {
   return (
-    <div>
+    <div style={{paddingBottom : '200px'}}>
       <Helmet>
         <title>Crypto Dashboard</title>
       </Helmet>
