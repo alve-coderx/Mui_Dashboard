@@ -6,7 +6,7 @@ import RecentOrders from './RecentOrders';
 
 function ApplicationsTransactions() {
   return (
-    <>
+    <div style={{paddingBottom : '310px'}}>
       <Helmet>
         <title>Transactions - Applications</title>
       </Helmet>
@@ -26,7 +26,7 @@ function ApplicationsTransactions() {
           </Grid>
         </Grid>
       </Container>
-    </>
+    </div>
   );
 }
 

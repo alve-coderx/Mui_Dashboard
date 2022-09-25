@@ -42,7 +42,7 @@ function BulkActions() {
     <>
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box display="flex" alignItems="center">
-          <Typography variant="h5" color="text.secondary">
+          <Typography variant="h5" sx={{color : 'white'}}>
             Bulk actions:
           </Typography>
           <ButtonError

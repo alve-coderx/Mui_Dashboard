@@ -9,8 +9,14 @@ import {
   alpha,
   Tooltip,
   CardActionArea,
-  styled
+  IconButton,
+  styled,
+  useTheme,
+
 } from '@mui/material';
+import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
+import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+import device from '../../../assets/device.png'
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
@@ -23,10 +29,9 @@ const AvatarWrapper = styled(Avatar)(
     border-radius: 60px;
     height: ${theme.spacing(5.5)};
     width: ${theme.spacing(5.5)};
-    background: ${
-      theme.palette.mode === 'dark'
-        ? theme.colors.alpha.trueWhite[30]
-        : alpha(theme.colors.alpha.black[100], 0.07)
+    background: ${theme.palette.mode === 'dark'
+      ? theme.colors.alpha.trueWhite[30]
+      : alpha(theme.colors.alpha.black[100], 0.07)
     };
   
     img {
@@ -76,280 +81,507 @@ const CardAddAction = styled(Card)(
 function Wallets() {
   return (
     <>
-      
       <Grid container spacing={3}>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              color: 'white',
+              p: 2,
+              border: '2px solid gray',
+              background: 'transparent',
+              borderRadius : '34px'
+              
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Cardano
+                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                  Device 01
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
+                <Box>
+                  <Tooltip title="Edit Order" arrow>
+                    <IconButton
+                      sx={{
+
+                        color: '#FABB18',
+                        borderRadius: '50%',
+                        border: '2px solid #FABB18',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <EditTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete Order" arrow>
+                    <IconButton
+                      sx={{
+                        color: '#E44B23',
+                        borderRadius: '50%',
+                        border: '2px solid #E44B23',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <DeleteTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </Box>
-              
-              <Typography  noWrap>
-                ADA
-              </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
+                  <Box>
+                    <Box>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                    <Box sx={{pt : 2}}>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
+                    <img src={device} />
+                  </Box>
+               </Box>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              color: 'white',
+              p: 2,
+              border: '2px solid gray',
+              background: 'transparent',
+              borderRadius : '34px'
+              
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Cardano
+                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                  Device 01
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
+                <Box>
+                  <Tooltip title="Edit Order" arrow>
+                    <IconButton
+                      sx={{
+
+                        color: '#FABB18',
+                        borderRadius: '50%',
+                        border: '2px solid #FABB18',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <EditTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete Order" arrow>
+                    <IconButton
+                      sx={{
+                        color: '#E44B23',
+                        borderRadius: '50%',
+                        border: '2px solid #E44B23',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <DeleteTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </Box>
-              
-              <Typography  noWrap>
-                ADA
-              </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
+                  <Box>
+                    <Box>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                    <Box sx={{pt : 2}}>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
+                    <img src={device} />
+                  </Box>
+               </Box>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              color: 'white',
+              p: 2,
+              border: '2px solid gray',
+              background: 'transparent',
+              borderRadius : '34px'
+              
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Cardano
+                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                  Device 01
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
+                <Box>
+                  <Tooltip title="Edit Order" arrow>
+                    <IconButton
+                      sx={{
+
+                        color: '#FABB18',
+                        borderRadius: '50%',
+                        border: '2px solid #FABB18',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <EditTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete Order" arrow>
+                    <IconButton
+                      sx={{
+                        color: '#E44B23',
+                        borderRadius: '50%',
+                        border: '2px solid #E44B23',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <DeleteTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </Box>
-              
-              <Typography  noWrap>
-                ADA
-              </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
+                  <Box>
+                    <Box>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                    <Box sx={{pt : 2}}>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
+                    <img src={device} />
+                  </Box>
+               </Box>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              color: 'white',
+              p: 2,
+              border: '2px solid gray',
+              background: 'transparent',
+              borderRadius : '34px'
+              
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Cardano
+                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                  Device 01
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
+                <Box>
+                  <Tooltip title="Edit Order" arrow>
+                    <IconButton
+                      sx={{
+
+                        color: '#FABB18',
+                        borderRadius: '50%',
+                        border: '2px solid #FABB18',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <EditTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete Order" arrow>
+                    <IconButton
+                      sx={{
+                        color: '#E44B23',
+                        borderRadius: '50%',
+                        border: '2px solid #E44B23',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <DeleteTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </Box>
-              
-              <Typography  noWrap>
-                ADA
-              </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
+                  <Box>
+                    <Box>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                    <Box sx={{pt : 2}}>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
+                    <img src={device} />
+                  </Box>
+               </Box>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              color: 'white',
+              p: 2,
+              border: '2px solid gray',
+              background: 'transparent',
+              borderRadius : '34px'
+              
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Cardano
+                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                  Device 01
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
+                <Box>
+                  <Tooltip title="Edit Order" arrow>
+                    <IconButton
+                      sx={{
+
+                        color: '#FABB18',
+                        borderRadius: '50%',
+                        border: '2px solid #FABB18',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <EditTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete Order" arrow>
+                    <IconButton
+                      sx={{
+                        color: '#E44B23',
+                        borderRadius: '50%',
+                        border: '2px solid #E44B23',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <DeleteTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </Box>
-              
-              <Typography  noWrap>
-                ADA
-              </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
+                  <Box>
+                    <Box>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                    <Box sx={{pt : 2}}>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
+                    <img src={device} />
+                  </Box>
+               </Box>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-          <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color : 'white',
-              px: 1,
-              border : '2px solid gray',
-              background : 'transparent'
+              color: 'white',
+              p: 2,
+              border: '2px solid gray',
+              background: 'transparent',
+              borderRadius : '34px'
+              
             }}
           >
             <CardContent>
-              <Box 
+              <Box
                 sx={{
-                  display : 'flex',
-                  alignItems : 'center',
-                  justifyContent : 'space-between'
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h5" noWrap>
-                    Cardano
+                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                  Device 01
                 </Typography>
-                <AvatarWrapper>
-                  <img
-                    alt="Cardano"
-                    src="/static/images/placeholders/logo/cardano.png"
-                  />
-                </AvatarWrapper>
+                <Box>
+                  <Tooltip title="Edit Order" arrow>
+                    <IconButton
+                      sx={{
+
+                        color: '#FABB18',
+                        borderRadius: '50%',
+                        border: '2px solid #FABB18',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <EditTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete Order" arrow>
+                    <IconButton
+                      sx={{
+                        color: '#E44B23',
+                        borderRadius: '50%',
+                        border: '2px solid #E44B23',
+                        ml: 1
+                      }}
+                      size="small"
+                    >
+                      <DeleteTwoToneIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </Box>
-              
-              <Typography  noWrap>
-                ADA
-              </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
+                  <Box>
+                    <Box>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                    <Box sx={{pt : 2}}>
+                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                        $54,985.00
+                      </Typography>
+                      <Typography noWrap>
+                        34,985 ADA
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
+                    <img src={device} />
+                  </Box>
+               </Box>
               </Box>
             </CardContent>
           </Card>

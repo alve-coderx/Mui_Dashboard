@@ -84,12 +84,12 @@ function Sidebar() {
             href="https://bloomui.com"
             target="_blank"
             rel="noopener noreferrer"
-            variant="contained"
-            color="warning"
+            variant="outlined"
+            sx={{color : '#E44B23',borderColor : '#E44B23'}}
             size="small"
             fullWidth
           >
-            Upgrade to PRO
+            Logout
           </Button>
         </Box>
       </SidebarWrapper>

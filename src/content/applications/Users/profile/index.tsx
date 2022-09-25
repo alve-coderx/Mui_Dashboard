@@ -1,64 +1,35 @@
 import { Helmet } from 'react-helmet-async';
-import Footer from 'src/components/Footer';
+import PageHeader from './PageHeader';
+import PageTitleWrapper from 'src/components/PageTitleWrapper';
+import { Container, Grid } from '@mui/material';
+import Wallets from './Wallets';
 
-import { Grid, Container } from '@mui/material';
-
-import ProfileCover from './ProfileCover';
-import RecentActivity from './RecentActivity';
-import Feed from './Feed';
-import PopularTags from './PopularTags';
-import MyCards from './MyCards';
-import Addresses from './Addresses';
-
-function ManagementUserProfile() {
-  const user = {
-    savedCards: 7,
-    name: 'Catherine Pike',
-    coverImg: '/static/images/placeholders/covers/5.jpg',
-    avatar: '/static/images/avatars/4.jpg',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage",
-    jobtitle: 'Web Developer',
-    location: 'Barcelona, Spain',
-    followers: '465'
-  };
-
+function DashboardCrypto() {
   return (
-    <>
+    <div>
       <Helmet>
-        <title>User Details - Management</title>
+        <title>Crypto Dashboard</title>
       </Helmet>
-      <Container sx={{ mt: 3 }} maxWidth="lg">
+      <PageTitleWrapper>
+        <PageHeader />
+      </PageTitleWrapper>
+      <Container maxWidth="lg">
         <Grid
           container
           direction="row"
           justifyContent="center"
           alignItems="stretch"
-          spacing={3}
+          spacing={4}
+          
         >
-          <Grid item xs={12} md={8}>
-            <ProfileCover user={user} />
+          <Grid item xs={12}>
+            <Wallets />
           </Grid>
-          <Grid item xs={12} md={4}>
-            <RecentActivity />
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <Feed />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <PopularTags />
-          </Grid>
-          <Grid item xs={12} md={7}>
-            <MyCards />
-          </Grid>
-          <Grid item xs={12} md={5}>
-            <Addresses />
-          </Grid>
+         
         </Grid>
       </Container>
-      <Footer />
-    </>
+    </div>
   );
 }
 
-export default ManagementUserProfile;
+export default DashboardCrypto;

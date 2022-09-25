@@ -241,9 +241,11 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                           '&:hover': {
                             background: theme.colors.primary.lighter
                           },
-                          color: theme.palette.primary.main
+                          color: '#FABB18',
+                          borderRadius : '50%',
+                          border : '2px solid #FABB18',
+                          ml : 1
                         }}
-                        color="inherit"
                         size="small"
                       >
                         <EditTwoToneIcon fontSize="small" />
@@ -253,9 +255,11 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                       <IconButton
                         sx={{
                           '&:hover': { background: theme.colors.error.lighter },
-                          color: theme.palette.error.main
+                          color: '#E44B23',
+                          borderRadius : '50%',
+                          border : '2px solid #E44B23',
+                          ml : 1
                         }}
-                        color="inherit"
                         size="small"
                       >
                         <DeleteTwoToneIcon fontSize="small" />

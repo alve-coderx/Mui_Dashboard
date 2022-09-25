@@ -34,7 +34,6 @@ const LogoSign = styled(Box)(
         height: 18px;
         border-radius: ${theme.general.borderRadiusSm};
         position: relative;
-        transform: rotate(45deg);
         top: 3px;
         left: 17px;
 
@@ -113,12 +112,9 @@ function Logo() {
           }}
           overlap="circular"
           color="success"
-          badgeContent="2.0"
         >
           <LogoSignWrapper>
-            <LogoSign>
-              <LogoSignInner />
-            </LogoSign>
+              <img style={{height : '100%',width : 'auto'}} src='https://i.ibb.co/CMZPkZt/logo.png'/>
           </LogoSignWrapper>
         </Badge>
       </LogoWrapper>
