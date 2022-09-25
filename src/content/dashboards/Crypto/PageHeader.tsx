@@ -1,8 +1,8 @@
 import {useState} from 'react'
-import { Typography, Modal , Grid,Box,TextField } from '@mui/material';
+import { Typography, Modal , Grid,Box,TextField, Button, IconButton } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Ret from '../../../assets/ret1.png';
-
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -10,7 +10,6 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
   bgcolor: 'black',
   border: '2px solid #000',
   boxShadow: 24,
@@ -44,7 +43,7 @@ function PageHeader() {
       <Box 
         sx={{background: '#3E3E3E',color :'white', border : '2px solid trasnparent',borderRadius : '20px',width : '250px'}}
         >
-          <Box onClick={handleOpen} sx={{display : 'flex',alignItems : 'center',justifyContent : 'space-around'}}>
+          <Box onClick={handleOpen} sx={{display : 'flex',alignItems : 'center',justifyContent : 'space-around',cursor : 'pointer'}}>
             <Box>
               <p>Add New Device</p>
             </Box>
@@ -57,27 +56,38 @@ function PageHeader() {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h2"  component="h2">
-                  Add New Device
-              </Typography>
-              <Box sx={{display : 'flex',flexWrap:'nowrap'}}>
-                <input
-                  placeholder="Device Name"
-                  type="text"
-                  style={{background : 'transparent',padding: '2px',borderRadius : '5px',border : '2px solid white', width: '100px',margin : '10px'}}
-                />
-                <input
-                  placeholder="pairing code"
-                  type="text"
-                  style={{background : 'transparent',padding: '2px',borderRadius : '5px',border : '2px solid white', width: '100px',margin : '10px'}}
-                />
-                <input
-                  placeholder="Serial number"
-                  type="text"
-                  style={{background : 'transparent',padding: '2px',borderRadius : '5px',border : '2px solid white', width: '100px',margin : '10px'}}
-                />
-              
+              <Box sx={{display: 'flex',justifyContent : 'space-between'}}>
+                <Typography id="modal-modal-title" variant="h2"  component="h2">
+                    Add New Device
+                </Typography>
+                <IconButton sx={{color : 'white'}} onClick={() => handleClose()}>
+                    <CloseIcon/>
+                </IconButton>
               </Box>
+              <Box sx={{display : 'flex',flexWrap:'nowrap',mt:5}}>
+                <Box sx={{px : 2}}>
+                  <label>Device Name</label><br/>
+                  <input
+                    style={{background : 'none',border : '2px solid white',padding : '10px',borderRadius : '10px',color : 'white'}}
+                    placeholder='Device Name'
+                  />
+                </Box>
+                <Box sx={{px : 2}}>
+                  <label>Device Name</label><br/>
+                  <input
+                    style={{background : 'none',border : '2px solid white',padding : '10px',borderRadius : '10px',color : 'white'}}
+                    placeholder='Device Name'
+                  />
+                </Box>
+                <Box sx={{px : 2}}>
+                  <label>Device Name</label><br/>
+                  <input
+                    style={{background : 'none',border : '2px solid white',padding : '10px',borderRadius : '10px',color : 'white'}}
+                    placeholder='Device Name'
+                  />
+                </Box>
+              </Box>
+              <button  style={{marginTop:"20px",background : '#E44B23',color : 'white',paddingTop : '10px',paddingBottom : '10px',paddingLeft : '25px',paddingRight : '25px',borderRadius : '10px'}}>Add Device</button>
             </Box>
           </Modal>
       </Box>
