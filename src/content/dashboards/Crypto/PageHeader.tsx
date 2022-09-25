@@ -1,5 +1,7 @@
-import { Typography, Avatar, Grid } from '@mui/material';
+import { Typography, Avatar, Grid,Box,Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
+
 
 function PageHeader() {
   const user = {
@@ -9,28 +11,31 @@ function PageHeader() {
   const theme = useTheme();
 
   return (
-    <Grid container alignItems="center">
+    <Grid  container alignItems="center" spacing={3}>
       <Grid item>
-        <Avatar
-          sx={{
-            mr: 2,
-            width: theme.spacing(8),
-            height: theme.spacing(8)
-          }}
-          variant="rounded"
-          alt={user.name}
-          src={user.avatar}
-        />
-      </Grid>
-      <Grid item>
-        <Typography variant="h3" component="h3" gutterBottom>
-          Welcome, {user.name}!
-        </Typography>
-        <Typography variant="subtitle2">
-          Today is a good day to start trading crypto assets!
+        <Typography variant="h3" component="h3" gutterBottom sx={{color : 'white'}}>
+            Today
         </Typography>
       </Grid>
-    </Grid>
+      <Grid item>
+        <Typography variant="subtitle2" sx={{color : 'white'}}>
+            Mon 22, 2021 | 10:00 AM
+        </Typography>
+      </Grid>
+      
+      <Grid item>
+        <Button
+            sx={{background: '#3E3E3E',color :'white'}}
+            size="small"
+            variant="outlined"
+            startIcon={<AddTwoToneIcon fontSize="small" />}
+          >
+            Add New Device
+        </Button>
+      </Grid>
+      
+       
+    </Grid >
   );
 }
 

@@ -93,7 +93,7 @@ function HeaderSearch() {
   return (
     <>
       <Tooltip arrow title="Search">
-        <IconButton color="primary" onClick={handleClickOpen}>
+        <IconButton style={{color : 'white'}}  onClick={handleClickOpen}>
           <SearchTwoToneIcon />
         </IconButton>
       </Tooltip>

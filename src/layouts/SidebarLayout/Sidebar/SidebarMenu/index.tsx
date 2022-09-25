@@ -65,7 +65,7 @@ const SubMenuWrapper = styled(Box)(
           right: ${theme.spacing(3.2)};
 
           .MuiBadge-standard {
-            background: ${theme.colors.primary.main};
+            background: ${theme.colors.secondary.main};
             font-size: ${theme.typography.pxToRem(10)};
             font-weight: bold;
             text-transform: uppercase;
@@ -106,7 +106,7 @@ const SubMenuWrapper = styled(Box)(
 
           &.active,
           &:hover {
-            background-color: ${alpha(theme.colors.alpha.trueWhite[100], 0.06)};
+            background-color: #E44B23;
             color: ${theme.colors.alpha.trueWhite[100]};
 
             .MuiButton-startIcon,
@@ -194,22 +194,20 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/dashboards/crypto"
                   startIcon={<BrightnessLowTwoToneIcon />}
                 >
-                  Cryptocurrency
+                  Devices
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/dashboards/messenger"
                   startIcon={<MmsTwoToneIcon />}
                 >
-                  Messenger
+                  Media
                 </Button>
               </ListItem>
             </List>
@@ -229,11 +227,10 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/management/transactions"
                   startIcon={<TableChartTwoToneIcon />}
                 >
-                  Transactions List
+                  Playlist
                 </Button>
               </ListItem>
             </List>
@@ -253,22 +250,20 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/management/profile/details"
                   startIcon={<AccountCircleTwoToneIcon />}
                 >
-                  User Profile
+                  Billing
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/management/profile/settings"
                   startIcon={<DisplaySettingsTwoToneIcon />}
                 >
-                  Account Settings
+                  Auth
                 </Button>
               </ListItem>
             </List>
@@ -288,29 +283,26 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/buttons"
                   startIcon={<BallotTwoToneIcon />}
                 >
-                  Buttons
+                  Setting
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/modals"
                   startIcon={<BeachAccessTwoToneIcon />}
                 >
-                  Modals
+                  Help & Support
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/accordions"
                   startIcon={<EmojiEventsTwoToneIcon />}
                 >
@@ -321,7 +313,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/tabs"
                   startIcon={<FilterVintageTwoToneIcon />}
                 >
@@ -332,7 +323,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/badges"
                   startIcon={<HowToVoteTwoToneIcon />}
                 >
@@ -343,7 +333,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/tooltips"
                   startIcon={<LocalPharmacyTwoToneIcon />}
                 >
@@ -354,7 +343,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/avatars"
                   startIcon={<RedeemTwoToneIcon />}
                 >
@@ -365,7 +353,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/cards"
                   startIcon={<SettingsTwoToneIcon />}
                 >
@@ -376,7 +363,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/components/forms"
                   startIcon={<TrafficTwoToneIcon />}
                 >
@@ -400,7 +386,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/status/404"
                   startIcon={<CheckBoxTwoToneIcon />}
                 >
@@ -411,7 +396,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/status/500"
                   startIcon={<CameraFrontTwoToneIcon />}
                 >
@@ -422,7 +406,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/status/coming-soon"
                   startIcon={<ChromeReaderModeTwoToneIcon />}
                 >
@@ -433,7 +416,6 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  onClick={closeSidebar}
                   to="/status/maintenance"
                   startIcon={<WorkspacePremiumTwoToneIcon />}
                 >

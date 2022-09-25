@@ -55,7 +55,7 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
             }
           }}
         >
-          <Box display="block">
+          <Box display="block" sx={{background: '#1E1E1E'}}>
             <Outlet />
           </Box>
         </Box>

@@ -9,8 +9,11 @@ import {
   alpha,
   Tooltip,
   CardActionArea,
-  styled
+  styled,
+  CardMedia
 } from '@mui/material';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
@@ -96,7 +99,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h5" noWrap>
-                    Cardano
+                    Media 01
                 </Typography>
                 <AvatarWrapper>
                   <img
@@ -107,19 +110,16 @@ function Wallets() {
               </Box>
               
               <Typography  noWrap>
-                ADA
+                Picture PNG
               </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+                    <img
+                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
+                    />
               </Box>
             </CardContent>
           </Card>
@@ -142,7 +142,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h5" noWrap>
-                    Cardano
+                    Media 01
                 </Typography>
                 <AvatarWrapper>
                   <img
@@ -153,19 +153,16 @@ function Wallets() {
               </Box>
               
               <Typography  noWrap>
-                ADA
+                Picture PNG
               </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+                    <img
+                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
+                    />
               </Box>
             </CardContent>
           </Card>
@@ -188,7 +185,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h5" noWrap>
-                    Cardano
+                    Media 01
                 </Typography>
                 <AvatarWrapper>
                   <img
@@ -199,19 +196,16 @@ function Wallets() {
               </Box>
               
               <Typography  noWrap>
-                ADA
+                Picture PNG
               </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+                    <img
+                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
+                    />
               </Box>
             </CardContent>
           </Card>
@@ -234,7 +228,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h5" noWrap>
-                    Cardano
+                    Media 01
                 </Typography>
                 <AvatarWrapper>
                   <img
@@ -245,19 +239,16 @@ function Wallets() {
               </Box>
               
               <Typography  noWrap>
-                ADA
+                Picture PNG
               </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+                    <img
+                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
+                    />
               </Box>
             </CardContent>
           </Card>
@@ -280,7 +271,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h5" noWrap>
-                    Cardano
+                    Media 01
                 </Typography>
                 <AvatarWrapper>
                   <img
@@ -291,19 +282,16 @@ function Wallets() {
               </Box>
               
               <Typography  noWrap>
-                ADA
+                Picture PNG
               </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+                    <img
+                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
+                    />
               </Box>
             </CardContent>
           </Card>
@@ -326,7 +314,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h5" noWrap>
-                    Cardano
+                    Media 01
                 </Typography>
                 <AvatarWrapper>
                   <img
@@ -337,23 +325,21 @@ function Wallets() {
               </Box>
               
               <Typography  noWrap>
-                ADA
+                Picture PNG
               </Typography>
               <Box
                 sx={{
                   pt: 3
                 }}
               >
-                <Typography  gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography  noWrap>
-                  34,985 ADA
-                </Typography>
+                    <img
+                      src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=164&h=164&fit=crop&auto=format`}
+                    />
               </Box>
             </CardContent>
           </Card>
         </Grid>
+          
       </Grid>
     </>
   );

@@ -40,21 +40,22 @@ const MenuUserBox = styled(Box)(
 const UserBoxText = styled(Box)(
   ({ theme }) => `
         text-align: left;
-        padding-left: ${theme.spacing(1)};
+        padding: ${theme.spacing(1)};
 `
 );
 
 const UserBoxLabel = styled(Typography)(
   ({ theme }) => `
-        font-weight: ${theme.typography.fontWeightBold};
-        color: ${theme.palette.secondary.main};
+  color: ${lighten(theme.palette.secondary.main, 0.5)}
+        
         display: block;
 `
 );
 
 const UserBoxDescription = styled(Typography)(
   ({ theme }) => `
-        color: ${lighten(theme.palette.secondary.main, 0.5)}
+        font-weight: ${theme.typography.fontWeightBold};
+        color: ${theme.palette.secondary.main};
 `
 );
 
@@ -79,7 +80,6 @@ function HeaderUserbox() {
   return (
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
-        <Avatar variant="rounded" alt={user.name} src={user.avatar} />
         <Hidden mdDown>
           <UserBoxText>
             <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
@@ -88,6 +88,7 @@ function HeaderUserbox() {
             </UserBoxDescription>
           </UserBoxText>
         </Hidden>
+        <Avatar variant="rounded" alt={user.name} src={user.avatar} />
         <Hidden smDown>
           <ExpandMoreTwoToneIcon sx={{ ml: 1 }} />
         </Hidden>
