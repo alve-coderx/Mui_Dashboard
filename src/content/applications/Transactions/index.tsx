@@ -5,6 +5,7 @@ import { Grid, Container } from '@mui/material';
 import RecentOrders from './RecentOrders';
 
 function ApplicationsTransactions() {
+  
   return (
     <div style={{paddingBottom : '310px'}}>
       <Helmet>

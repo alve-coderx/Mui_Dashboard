@@ -8,11 +8,9 @@ import { useMode } from 'src/hook/useMode';
 
 
 function PageHeader() {
-  const user = {
-    name: 'Catherine Pike',
-    avatar: '/static/images/avatars/1.jpg'
-  };
-  const theme = useTheme();
+  const [name,setName] = useState("");
+  const [pairingCode,setPairingCode] = useState("");
+  const [serial,setSerial] = useState("");
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -28,6 +26,21 @@ function PageHeader() {
     boxShadow: 24,
     p: 4,
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newDevice = {
+      "deviceName": name,
+      "serialNumber": serial,
+      "pairingCode": pairingCode,
+      "ownerId": "Fc64280c1ef74f9c9c8adb1906704362"
+    }
+    fetch("https://kitecast-dev-api.azurewebsites.net/api/v1/customers/players", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newDevice),
+  })
+      .then((res) => res.json())
+  }
   return (
     <Box sx={{display : 'flex',justifyContent : 'space-between'}}>
       <Box sx={{display : 'flex',alignItems : 'center'}}>
@@ -59,38 +72,43 @@ function PageHeader() {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Box sx={{display: 'flex',justifyContent : 'space-between'}}>
-                <Typography id="modal-modal-title" variant="h2"  component="h2">
-                    Add New Device
-                </Typography>
-                <IconButton sx={{color: darkMode ? 'white' : 'black'}} onClick={() => handleClose()}>
-                    <CloseIcon/>
-                </IconButton>
-              </Box>
-              <Box sx={{display : 'flex',flexWrap:'nowrap',mt:5}}>
-                <Box sx={{px : 2}}>
-                  <label>Device Name</label><br/>
-                  <input
-                    style={{background : 'none',border : '2px solid',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
-                    placeholder='Device Name'
-                  />
+              <form onSubmit={handleSubmit}>
+                <Box sx={{display: 'flex',justifyContent : 'space-between'}}>
+                  <Typography id="modal-modal-title" variant="h2"  component="h2">
+                      Add New Device
+                  </Typography>
+                  <IconButton sx={{color: darkMode ? 'white' : 'black'}} onClick={() => handleClose()}>
+                      <CloseIcon/>
+                  </IconButton>
                 </Box>
-                <Box sx={{px : 2}}>
-                  <label>Device Name</label><br/>
-                  <input
-                    style={{background : 'none',border : '2px solid',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
-                    placeholder='Device Name'
-                  />
+                <Box sx={{display : 'flex',flexWrap:'nowrap',mt:5}}>
+                  <Box sx={{px : 2}}>
+                    <label>Device Name</label><br/>
+                    <input
+                      style={{background : 'none',border : '2px solid',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
+                      placeholder='Device Name'
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </Box>
+                  <Box sx={{px : 2}}>
+                    <label>Pairing Code</label><br/>
+                    <input
+                      style={{background : 'none',border : '2px solid',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
+                      placeholder='Pairing Code'
+                      onChange={(e) => setPairingCode(e.target.value)}
+                    />
+                  </Box>
+                  <Box sx={{px : 2}}>
+                    <label>Serial Number</label><br/>
+                    <input
+                      style={{background : 'none',border : '2px solid ',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
+                      placeholder='Serial Number'
+                      onChange={(e) => setSerial(e.target.value)}
+                    />
+                  </Box>
                 </Box>
-                <Box sx={{px : 2}}>
-                  <label>Device Name</label><br/>
-                  <input
-                    style={{background : 'none',border : '2px solid ',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
-                    placeholder='Device Name'
-                  />
-                </Box>
-              </Box>
-              <button  style={{marginTop:"20px",background : '#E44B23',color : 'white',paddingTop : '10px',paddingBottom : '10px',paddingLeft : '25px',paddingRight : '25px',borderRadius : '10px'}}>Add Device</button>
+                <button type='submit' style={{cursor:'pointer',marginTop:"20px",background : '#E44B23',color : 'white',paddingTop : '10px',paddingBottom : '10px',paddingLeft : '25px',paddingRight : '25px',borderRadius : '10px'}}>Add Device</button>
+              </form>
             </Box>
           </Modal>
       </Box>

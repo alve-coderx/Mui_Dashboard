@@ -24,6 +24,7 @@ import {
   useTheme,
   CardHeader
 } from '@mui/material';
+import {useEffect} from 'react';
 
 import Label from 'src/components/Label';
 import { CryptoOrder, CryptoOrderStatus } from 'src/models/crypto_order';
@@ -96,25 +97,15 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
     status: null
   });
 
-  const statusOptions = [
-    {
-      id: 'all',
-      name: 'All'
-    },
-    {
-      id: 'completed',
-      name: 'Completed'
-    },
-    {
-      id: 'pending',
-      name: 'Pending'
-    },
-    {
-      id: 'failed',
-      name: 'Failed'
-    }
-  ];
-
+  const handleDelete = (id) => {
+    fetch(`https://kitecast-dev-api.azurewebsites.net/api/v1/customers/playlists/${id}`,
+    { 
+      method: 'DELETE' 
+    })
+    .then((res)=>{
+      alert("Deleted")
+    })
+  }
   const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
     let value = null;
 
@@ -175,6 +166,17 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
     selectedCryptoOrders.length === cryptoOrders.length;
   const theme = useTheme();
     const {darkMode} = useMode()
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('https://kitecast-dev-api.azurewebsites.net/api/v1/customers/playlists?customerId=Fc64280c1ef74f9c9c8adb1906704362')
+        .then((res) => res.json())
+        .then((data) => {
+          setProducts(data)
+          console.log(data)
+        })
+        .catch((err) => console.log(err));
+    }, []);
   return (
     <Card style={{background : !darkMode ? 'white' : '#1E1E1E',color : !darkMode ? 'black' : 'white'}}>
       {selectedBulkActions && (
@@ -182,35 +184,12 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
           <BulkActions />
         </Box>
       )}
-      {!selectedBulkActions && (
-        <CardHeader
-          action={
-            <Box width={150}>
-              <FormControl fullWidth variant="outlined">
-                <InputLabel>Status</InputLabel>
-                <Select
-                  value={filters.status || 'all'}
-                  onChange={handleStatusChange}
-                  label="Status"
-                  autoWidth
-                >
-                  {statusOptions.map((statusOption) => (
-                    <MenuItem key={statusOption.id} value={statusOption.id}>
-                      {statusOption.name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-          }
-          title="Recent Orders"
-        />
-      )}
+     
       <Divider />
       <TableContainer>
         <Table>
           <TableBody>
-            {paginatedCryptoOrders.map((cryptoOrder) => {
+            {products.map((cryptoOrder) => {
               const isCryptoOrderSelected = selectedCryptoOrders.includes(
                 cryptoOrder.id
               );
@@ -220,19 +199,9 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                   key={cryptoOrder.id}
                   selected={isCryptoOrderSelected}
                 >
-                  <TableCell padding="checkbox">
-                    <Checkbox
-                      color="primary"
-                      checked={isCryptoOrderSelected}
-                      onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                        handleSelectOneCryptoOrder(event, cryptoOrder.id)
-                      }
-                      value={isCryptoOrderSelected}
-                    />
-                  </TableCell>
                   <TableCell>
                     <Typography variant="body2" sx={{color : darkMode ? 'white' : 'black'}} noWrap>
-                      {cryptoOrder.orderDetails}
+                      {cryptoOrder.name}
                     </Typography>
                   </TableCell>
                   <TableCell align="right">
@@ -262,6 +231,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                           ml : 1
                         }}
                         size="small"
+                        onClick={() => handleDelete(cryptoOrder.id)}
                       >
                         <DeleteTwoToneIcon fontSize="small" />
                       </IconButton>

@@ -78,12 +78,22 @@ const CardAddAction = styled(Card)(
         }
 `
 );
+    
 
-function Wallets() {
+function Wallets({Item}) {
   const {darkMode} = useMode()
+
+  const handleDelete = () => {
+    fetch(`https://kitecast-dev-api.azurewebsites.net/api/v1/customers/players/${Item.id}`,
+    { 
+      method: 'DELETE' 
+    })
+    .then((res)=>{
+      alert("Deleted")
+    })
+  }
   return (
     <>
-      <Grid container spacing={3}>
         <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
@@ -102,9 +112,11 @@ function Wallets() {
                   justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
-                  Device 01
-                </Typography>
+                <Tooltip title={Item.id} arrow>
+                  <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
+                    {Item.deviceName}
+                  </Typography>
+                </Tooltip>
                 <Box>
                   <Tooltip title="Edit Order" arrow>
                     <IconButton
@@ -128,8 +140,9 @@ function Wallets() {
                         ml: 1
                       }}
                       size="small"
+                      onClick={() => handleDelete()}
                     >
-                      <DeleteTwoToneIcon fontSize="small" />
+                      <DeleteTwoToneIcon fontSize="small"/>
                     </IconButton>
                   </Tooltip>
                 </Box>
@@ -143,432 +156,22 @@ function Wallets() {
                   <Box>
                     <Box>
                       <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
+                        Pairing Code
                       </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
+                        {Item.pairingCode}
                       </Typography>
                     </Box>
                     <Box sx={{pt : 2}}>
                       <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
-                    <img src={device} />
-                  </Box>
-               </Box>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid xs={12} sm={6} md={4} item>
-          <Card
-            sx={{
-              p: 2,
-              border: !darkMode ? 'mone' : '2px solid gray',
-              background: !darkMode ? 'white' : 'transparent',
-              borderRadius : '34px'
-              
-            }}
-          >
-            <CardContent>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
-                  Device 01
-                </Typography>
-                <Box>
-                  <Tooltip title="Edit Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#FABB18',
-                        borderRadius: '50%',
-                        border: '2px solid #FABB18',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <EditTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Delete Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#E44B23',
-                        borderRadius: '50%',
-                        border: '2px solid #E44B23',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <DeleteTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  pt: 3
-                }}
-              >
-               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
-                  <Box>
-                    <Box>
+                        Serial Number
+                      </Typography >
                       <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                    <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
+                        {Item.serialNumber}
                       </Typography>
                     </Box>
                   </Box>
-                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
-                    <img src={device} />
-                  </Box>
-               </Box>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid xs={12} sm={6} md={4} item>
-          <Card
-            sx={{
-              p: 2,
-              border: !darkMode ? 'mone' : '2px solid gray',
-              background: !darkMode ? 'white' : 'transparent',
-              borderRadius : '34px'
-              
-            }}
-          >
-            <CardContent>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
-                  Device 01
-                </Typography>
-                <Box>
-                  <Tooltip title="Edit Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#FABB18',
-                        borderRadius: '50%',
-                        border: '2px solid #FABB18',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <EditTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Delete Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#E44B23',
-                        borderRadius: '50%',
-                        border: '2px solid #E44B23',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <DeleteTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  pt: 3
-                }}
-              >
-               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
-                  <Box>
-                    <Box>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                    <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
-                    <img src={device} />
-                  </Box>
-               </Box>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid xs={12} sm={6} md={4} item>
-          <Card
-            sx={{
-              p: 2,
-              border: !darkMode ? 'mone' : '2px solid gray',
-              background: !darkMode ? 'white' : 'transparent',
-              borderRadius : '34px'
-              
-            }}
-          >
-            <CardContent>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
-                  Device 01
-                </Typography>
-                <Box>
-                  <Tooltip title="Edit Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#FABB18',
-                        borderRadius: '50%',
-                        border: '2px solid #FABB18',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <EditTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Delete Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#E44B23',
-                        borderRadius: '50%',
-                        border: '2px solid #E44B23',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <DeleteTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  pt: 3
-                }}
-              >
-               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
-                  <Box>
-                    <Box>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                    <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
-                    <img src={device} />
-                  </Box>
-               </Box>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid xs={12} sm={6} md={4} item>
-          <Card
-            sx={{
-              p: 2,
-              border: !darkMode ? 'mone' : '2px solid gray',
-              background: !darkMode ? 'white' : 'transparent',
-              borderRadius : '34px'
-              
-            }}
-          >
-            <CardContent>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
-                  Device 01
-                </Typography>
-                <Box>
-                  <Tooltip title="Edit Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#FABB18',
-                        borderRadius: '50%',
-                        border: '2px solid #FABB18',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <EditTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Delete Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#E44B23',
-                        borderRadius: '50%',
-                        border: '2px solid #E44B23',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <DeleteTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  pt: 3
-                }}
-              >
-               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
-                  <Box>
-                    <Box>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                    <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
-                    <img src={device} />
-                  </Box>
-               </Box>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid xs={12} sm={6} md={4} item>
-          <Card
-            sx={{
-              p: 2,
-              border: !darkMode ? 'mone' : '2px solid gray',
-              background: !darkMode ? 'white' : 'transparent',
-              borderRadius : '34px'
-              
-            }}
-          >
-            <CardContent>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
-                  Device 01
-                </Typography>
-                <Box>
-                  <Tooltip title="Edit Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#FABB18',
-                        borderRadius: '50%',
-                        border: '2px solid #FABB18',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <EditTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Delete Order" arrow>
-                    <IconButton
-                      sx={{
-                        color: '#E44B23',
-                        borderRadius: '50%',
-                        border: '2px solid #E44B23',
-                        ml: 1
-                      }}
-                      size="small"
-                    >
-                      <DeleteTwoToneIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  pt: 3
-                }}
-              >
-               <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
-                  <Box>
-                    <Box>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                    <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
-                        $54,985.00
-                      </Typography>
-                      <Typography noWrap>
-                        34,985 ADA
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Box sx={{background : '#F5F5F5',p:4,opacity : '.5 ',borderRadius : '20px'}}>
+                  <Box sx={{background : '#F5F5F5',p:3,opacity : '.5 ',borderRadius : '20px'}}>
                     <img src={device} />
                   </Box>
                </Box>
@@ -577,7 +180,6 @@ function Wallets() {
           </Card>
         </Grid>
         
-      </Grid>
     </>
   );
 }
