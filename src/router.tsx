@@ -83,11 +83,11 @@ const routes: RouteObject[] = [
         element: <Navigate to="crypto" replace />
       },
       {
-        path: 'crypto',
+        path: 'devices',
         element: <Crypto />
       },
       {
-        path: 'messenger',
+        path: 'media',
         element: <Messenger />
       }
     ]
@@ -98,10 +98,10 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '',
-        element: <Navigate to="transactions" replace />
+        element: <Navigate to="playlists" replace />
       },
       {
-        path: 'transactions',
+        path: 'playlists',
         element: <Transactions />
       },
       {
@@ -109,10 +109,10 @@ const routes: RouteObject[] = [
         children: [
           {
             path: '',
-            element: <Navigate to="details" replace />
+            element: <Navigate to="billing" replace />
           },
           {
-            path: 'details',
+            path: 'billing',
             element: <UserProfile />
           },
           {

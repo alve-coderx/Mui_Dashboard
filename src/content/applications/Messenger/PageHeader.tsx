@@ -3,18 +3,8 @@ import { Typography, Modal , Grid,Box,TextField, Button, IconButton } from '@mui
 import { useTheme } from '@mui/material/styles';
 import Ret from '../../../assets/ret1.png';
 import CloseIcon from '@mui/icons-material/Close';
+import { useMode } from 'src/hook/useMode';
 
-const style = {
-  position: 'absolute' as 'absolute',
-  color: 'white',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  bgcolor: 'black',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
 
 function PageHeader() {
   const user = {
@@ -25,23 +15,35 @@ function PageHeader() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const {darkMode} = useMode()
+  const style = {
+    position: 'absolute' as 'absolute',
+    color: darkMode ? 'white' : 'black',
+    bgcolor: darkMode ? 'black' : 'white',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
   return (
     <Box sx={{display : 'flex',justifyContent : 'space-between'}}>
       <Box sx={{display : 'flex',alignItems : 'center'}}>
         <Grid item sx={{mr: 2}}>
-          <Typography variant="h3" component="h3" gutterBottom sx={{color : 'white'}}>
+          <Typography variant="h3" component="h3" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
               Today 
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle2" sx={{color : 'white'}}>
+          <Typography variant="subtitle2" sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
              Mon 22, 2021 | 10:00 AM
           </Typography>
         </Grid>
       </Box>
       
       <Box 
-        sx={{background: '#3E3E3E',color :'white', border : '2px solid trasnparent',borderRadius : '20px',width : '250px'}}
+        sx={{background: !darkMode ? 'white' : '#3E3E3E',color : !darkMode ? '#1E1E1E' : 'white', border : '2px solid trasnparent',borderRadius : '20px',width : '250px'}}
         >
           <Box onClick={handleOpen} sx={{display : 'flex',alignItems : 'center',justifyContent : 'space-around',cursor : 'pointer'}}>
             <Box>
@@ -60,7 +62,7 @@ function PageHeader() {
                 <Typography id="modal-modal-title" variant="h2">
                   Upload/Add Device
                 </Typography>
-                <IconButton sx={{color : 'white'}} onClick={() => handleClose()}>
+                <IconButton sx={{color: darkMode ? 'white' : 'black'}} onClick={() => handleClose()}>
                     <CloseIcon/>
                 </IconButton>
               </Box>
@@ -68,11 +70,11 @@ function PageHeader() {
                 <Box sx={{px : 2}}>
                   <label>Media Name</label><br/>
                   <input
-                    style={{background : 'none',border : '2px solid white',padding : '10px',borderRadius : '10px',color : 'white',width:'300px'}}
+                    style={{background : 'none',border : '2px solid',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white',width:'300px'}}
                     placeholder='Media Name'
                   />
                 </Box>
-                <Box sx={{display:'flex',flexDirection :'column',alignItems : 'center',px : 15,border : '2px dotted white',color : 'white',py : 4,mt:2}}>
+                <Box sx={{display:'flex',flexDirection :'column',alignItems : 'center',px : 15,border : '2px dotted',borderColor : darkMode ? 'white' : 'black',color: darkMode ? 'white' : 'black',py : 4,mt:2}}>
                  <Typography>Drag and Drop File here</Typography>
                  <Typography>OR</Typography>
                  <Box>

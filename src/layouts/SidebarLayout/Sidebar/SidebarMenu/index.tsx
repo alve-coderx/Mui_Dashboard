@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 import { NavLink as RouterLink } from 'react-router-dom';
 import { SidebarContext } from 'src/contexts/SidebarContext';
-
 import DesignServicesTwoToneIcon from '@mui/icons-material/DesignServicesTwoTone';
 import BrightnessLowTwoToneIcon from '@mui/icons-material/BrightnessLowTwoTone';
 import MmsTwoToneIcon from '@mui/icons-material/MmsTwoTone';
@@ -31,6 +30,8 @@ import ChromeReaderModeTwoToneIcon from '@mui/icons-material/ChromeReaderModeTwo
 import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
 import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
+import { useMode } from 'src/hook/useMode';
+import './style.css'
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -176,17 +177,12 @@ const SubMenuWrapper = styled(Box)(
 
 function SidebarMenu() {
   const { closeSidebar } = useContext(SidebarContext);
-
+  const {darkMode} = useMode()
   return (
     <>
       <MenuWrapper>
         <List
           component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Dashboards
-            </ListSubheader>
-          }
         >
           <SubMenuWrapper>
             <List component="div">
@@ -194,8 +190,9 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  to="/dashboards/crypto"
-                  startIcon={<BrightnessLowTwoToneIcon />}
+                  to="/dashboards/devices"
+                  startIcon={<BrightnessLowTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts' }/>}
+                  className={darkMode ? 'lightFonts' : 'darkFonts'}
                 >
                   Devices
                 </Button>
@@ -204,54 +201,31 @@ function SidebarMenu() {
                 <Button
                   disableRipple
                   component={RouterLink}
-                  to="/dashboards/messenger"
-                  startIcon={<MmsTwoToneIcon />}
+                  to="/dashboards/media"
+                  startIcon={<MmsTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
+                  className={darkMode ? 'lightFonts' : 'darkFonts'}
                 >
                   Media
                 </Button>
               </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Management
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
               <ListItem component="div">
                 <Button
                   disableRipple
                   component={RouterLink}
-                  to="/management/transactions"
-                  startIcon={<TableChartTwoToneIcon />}
+                  to="/management/playlists"
+                  startIcon={<TableChartTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
+                  className={darkMode ? 'lightFonts' : 'darkFonts'}
                 >
                   Playlist
                 </Button>
               </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Accounts
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
               <ListItem component="div">
                 <Button
                   disableRipple
                   component={RouterLink}
-                  to="/management/profile/details"
-                  startIcon={<AccountCircleTwoToneIcon />}
+                  to="/management/profile/billing"
+                  startIcon={<AccountCircleTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
+                  className={darkMode ? 'lightFonts' : 'darkFonts'}
                 >
                   Billing
                 </Button>
@@ -261,30 +235,19 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/management/profile/settings"
-                  startIcon={<DisplaySettingsTwoToneIcon />}
+                  startIcon={<DisplaySettingsTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
+                  className={darkMode ? 'lightFonts' : 'darkFonts'}
                 >
                   Auth
                 </Button>
               </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Components
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
               <ListItem component="div">
                 <Button
                   disableRipple
                   component={RouterLink}
                   to="/components/buttons"
-                  startIcon={<BallotTwoToneIcon />}
+                  startIcon={<BallotTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
+                  className={darkMode ? 'lightFonts' : 'darkFonts'}
                 >
                   Setting
                 </Button>
@@ -294,12 +257,12 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/components/modals"
-                  startIcon={<BeachAccessTwoToneIcon />}
+                  startIcon={<BeachAccessTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
+                  className={darkMode ? 'lightFonts' : 'darkFonts'}
                 >
                   Help & Support
                 </Button>
               </ListItem>
-              
             </List>
           </SubMenuWrapper>
         </List>

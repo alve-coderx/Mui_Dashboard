@@ -25,6 +25,8 @@ import { styled } from '@mui/material/styles';
 import { TransitionProps } from '@mui/material/transitions';
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import FindInPageTwoToneIcon from '@mui/icons-material/FindInPageTwoTone';
+import './style.css'
+import { useMode } from 'src/hook/useMode';
 
 import ChevronRightTwoToneIcon from '@mui/icons-material/ChevronRightTwoTone';
 
@@ -67,6 +69,7 @@ const DialogTitleWrapper = styled(DialogTitle)(
 function HeaderSearch() {
   const [openSearchResults, setOpenSearchResults] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const {darkMode} = useMode()
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(event.target.value);
@@ -94,7 +97,7 @@ function HeaderSearch() {
     <>
       <Tooltip arrow title="Search">
         <IconButton style={{color : 'white'}}  onClick={handleClickOpen}>
-          <SearchTwoToneIcon />
+          <SearchTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>
         </IconButton>
       </Tooltip>
 

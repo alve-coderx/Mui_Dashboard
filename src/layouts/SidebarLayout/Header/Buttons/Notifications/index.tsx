@@ -13,15 +13,16 @@ import {
 import { useRef, useState } from 'react';
 import NotificationsActiveTwoToneIcon from '@mui/icons-material/NotificationsActiveTwoTone';
 import { styled } from '@mui/material/styles';
-
+import './style.css'
 import { formatDistance, subDays } from 'date-fns';
+import { useMode } from 'src/hook/useMode';
 
 const NotificationsBadge = styled(Badge)(
   ({ theme }) => `
     
     .MuiBadge-badge {
         background-color: ${alpha(theme.palette.error.main, 0.1)};
-        color: ${theme.palette.error.main};
+        
         min-width: 16px; 
         height: 16px;
         padding: 0;
@@ -43,6 +44,7 @@ const NotificationsBadge = styled(Badge)(
 function HeaderNotifications() {
   const ref = useRef<any>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
+  const {darkMode} = useMode()
 
   const handleOpen = (): void => {
     setOpen(true);
@@ -63,7 +65,7 @@ function HeaderNotifications() {
               horizontal: 'right'
             }}
           >
-            <NotificationsActiveTwoToneIcon />
+            <NotificationsActiveTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>
           </NotificationsBadge>
         </IconButton>
       </Tooltip>

@@ -17,6 +17,7 @@ import {
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import device from '../../../assets/device.png'
+import { useMode } from 'src/hook/useMode';
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
@@ -79,16 +80,16 @@ const CardAddAction = styled(Card)(
 );
 
 function Wallets() {
+  const {darkMode} = useMode()
   return (
     <>
       <Grid container spacing={3}>
         <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color: 'white',
               p: 2,
-              border: '2px solid gray',
-              background: 'transparent',
+              border: !darkMode ? 'mone' : '2px solid gray',
+              background: !darkMode ? 'white' : 'transparent',
               borderRadius : '34px'
               
             }}
@@ -101,14 +102,13 @@ function Wallets() {
                   justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
                   Device 01
                 </Typography>
                 <Box>
                   <Tooltip title="Edit Order" arrow>
                     <IconButton
                       sx={{
-
                         color: '#FABB18',
                         borderRadius: '50%',
                         border: '2px solid #FABB18',
@@ -142,7 +142,7 @@ function Wallets() {
                <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
                   <Box>
                     <Box>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -150,7 +150,7 @@ function Wallets() {
                       </Typography>
                     </Box>
                     <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -169,10 +169,9 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color: 'white',
               p: 2,
-              border: '2px solid gray',
-              background: 'transparent',
+              border: !darkMode ? 'mone' : '2px solid gray',
+              background: !darkMode ? 'white' : 'transparent',
               borderRadius : '34px'
               
             }}
@@ -185,14 +184,13 @@ function Wallets() {
                   justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
                   Device 01
                 </Typography>
                 <Box>
                   <Tooltip title="Edit Order" arrow>
                     <IconButton
                       sx={{
-
                         color: '#FABB18',
                         borderRadius: '50%',
                         border: '2px solid #FABB18',
@@ -226,7 +224,7 @@ function Wallets() {
                <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
                   <Box>
                     <Box>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -234,7 +232,7 @@ function Wallets() {
                       </Typography>
                     </Box>
                     <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -253,10 +251,9 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color: 'white',
               p: 2,
-              border: '2px solid gray',
-              background: 'transparent',
+              border: !darkMode ? 'mone' : '2px solid gray',
+              background: !darkMode ? 'white' : 'transparent',
               borderRadius : '34px'
               
             }}
@@ -269,14 +266,13 @@ function Wallets() {
                   justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
                   Device 01
                 </Typography>
                 <Box>
                   <Tooltip title="Edit Order" arrow>
                     <IconButton
                       sx={{
-
                         color: '#FABB18',
                         borderRadius: '50%',
                         border: '2px solid #FABB18',
@@ -310,7 +306,7 @@ function Wallets() {
                <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
                   <Box>
                     <Box>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -318,7 +314,7 @@ function Wallets() {
                       </Typography>
                     </Box>
                     <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -337,10 +333,9 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color: 'white',
               p: 2,
-              border: '2px solid gray',
-              background: 'transparent',
+              border: !darkMode ? 'mone' : '2px solid gray',
+              background: !darkMode ? 'white' : 'transparent',
               borderRadius : '34px'
               
             }}
@@ -353,14 +348,13 @@ function Wallets() {
                   justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
                   Device 01
                 </Typography>
                 <Box>
                   <Tooltip title="Edit Order" arrow>
                     <IconButton
                       sx={{
-
                         color: '#FABB18',
                         borderRadius: '50%',
                         border: '2px solid #FABB18',
@@ -394,7 +388,7 @@ function Wallets() {
                <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
                   <Box>
                     <Box>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -402,7 +396,7 @@ function Wallets() {
                       </Typography>
                     </Box>
                     <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -421,10 +415,9 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color: 'white',
               p: 2,
-              border: '2px solid gray',
-              background: 'transparent',
+              border: !darkMode ? 'mone' : '2px solid gray',
+              background: !darkMode ? 'white' : 'transparent',
               borderRadius : '34px'
               
             }}
@@ -437,14 +430,13 @@ function Wallets() {
                   justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
                   Device 01
                 </Typography>
                 <Box>
                   <Tooltip title="Edit Order" arrow>
                     <IconButton
                       sx={{
-
                         color: '#FABB18',
                         borderRadius: '50%',
                         border: '2px solid #FABB18',
@@ -478,7 +470,7 @@ function Wallets() {
                <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
                   <Box>
                     <Box>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -486,7 +478,7 @@ function Wallets() {
                       </Typography>
                     </Box>
                     <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -505,10 +497,9 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
           <Card
             sx={{
-              color: 'white',
               p: 2,
-              border: '2px solid gray',
-              background: 'transparent',
+              border: !darkMode ? 'mone' : '2px solid gray',
+              background: !darkMode ? 'white' : 'transparent',
               borderRadius : '34px'
               
             }}
@@ -521,14 +512,13 @@ function Wallets() {
                   justifyContent: 'space-between'
                 }}
               >
-                <Typography variant="h3" sx={{color : 'white'}} noWrap>
+                <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
                   Device 01
                 </Typography>
                 <Box>
                   <Tooltip title="Edit Order" arrow>
                     <IconButton
                       sx={{
-
                         color: '#FABB18',
                         borderRadius: '50%',
                         border: '2px solid #FABB18',
@@ -562,7 +552,7 @@ function Wallets() {
                <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
                   <Box>
                     <Box>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -570,7 +560,7 @@ function Wallets() {
                       </Typography>
                     </Box>
                     <Box sx={{pt : 2}}>
-                      <Typography sx={{fontSize : '10px',color : '#919191'}}>
+                      <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
                         $54,985.00
                       </Typography>
                       <Typography noWrap>
@@ -586,6 +576,7 @@ function Wallets() {
             </CardContent>
           </Card>
         </Grid>
+        
       </Grid>
     </>
   );

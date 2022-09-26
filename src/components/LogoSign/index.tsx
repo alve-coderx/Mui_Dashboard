@@ -8,7 +8,9 @@ import {
   useTheme
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import { useMode } from 'src/hook/useMode';
+import logo from '../../layouts/SidebarLayout/Sidebar/logo.png'
+import logolg from '../../layouts/SidebarLayout/Sidebar/logolg.png'
 const LogoWrapper = styled(Link)(
   ({ theme }) => `
         color: ${theme.palette.text.primary};
@@ -95,7 +97,7 @@ const TooltipWrapper = styled(({ className, ...props }: TooltipProps) => (
 
 function Logo() {
   const theme = useTheme();
-
+  const {darkMode} = useMode()
   return (
     <TooltipWrapper
       title="Tokyo Free White React Typescript Admin Dashboard"
@@ -114,7 +116,7 @@ function Logo() {
           color="success"
         >
           <LogoSignWrapper>
-              <img style={{height : '100%',width : 'auto'}} src='https://i.ibb.co/CMZPkZt/logo.png'/>
+              <img style={{height : '100%',width : 'auto'}} src={darkMode ? logo : logolg}/>
           </LogoSignWrapper>
         </Badge>
       </LogoWrapper>

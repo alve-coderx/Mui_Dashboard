@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import { useMode } from 'src/hook/useMode';
 import bill1 from '../../../../assets/billing1.png';
 import bill2 from '../../../../assets/billing2.png';
 
@@ -78,6 +79,7 @@ const CardAddAction = styled(Card)(
 );
 
 function Wallets() {
+  const {darkMode} = useMode()
   return (
     <>
 
@@ -107,13 +109,13 @@ function Wallets() {
                 </Typography>
               </Box>
 
-              <Typography variant="h4" noWrap>
+              <Typography variant="h4" noWrap sx={{color: darkMode ? 'white' : 'black'}}>
                 $15
               </Typography>
               <Typography variant="h4" sx={{ color: '#E44B23', mt: 1 }}>
                 /month
               </Typography>
-              <Typography variant="body1" sx={{ color: '#E44B23', mt: 2 }}>
+              <Typography variant="body1" sx={{ color: darkMode ? 'white' : 'black' , mt: 2 }}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...
               </Typography>
               <Box
@@ -123,7 +125,7 @@ function Wallets() {
                   justifyContent: 'center',
                 }}
               >
-                <button style={{ marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
+                <button style={{border:'none', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
               </Box>
             </CardContent>
           </Card>
@@ -144,22 +146,22 @@ function Wallets() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  backgroundImage: `url(${bill2})`,
+                  backgroundImage: `url(${bill1})`,
                   backgroundRepeat: 'no-repeat'
                 }}
               >
                 <Typography variant="h2" noWrap>
-                  FREE
+                  PRO
                 </Typography>
               </Box>
 
-              <Typography variant="h4" noWrap>
+              <Typography variant="h4" noWrap sx={{color: darkMode ? 'white' : 'black'}}>
                 $15
               </Typography>
               <Typography variant="h4" sx={{ color: '#E44B23', mt: 1 }}>
                 /month
               </Typography>
-              <Typography variant="body1" sx={{ color: '#E44B23', mt: 2 }}>
+              <Typography variant="body1" sx={{ color: darkMode ? 'white' : 'black' , mt: 2 }}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...
               </Typography>
               <Box
@@ -169,7 +171,7 @@ function Wallets() {
                   justifyContent: 'center',
                 }}
               >
-                <button style={{ marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
+                <button style={{border:'none', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
               </Box>
             </CardContent>
           </Card>
@@ -190,22 +192,22 @@ function Wallets() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  backgroundImage: `url(${bill2})`,
+                  backgroundImage: `url(${bill1})`,
                   backgroundRepeat: 'no-repeat'
                 }}
               >
                 <Typography variant="h2" noWrap>
-                  FREE
+                  ENTERPRISE
                 </Typography>
               </Box>
 
-              <Typography variant="h4" noWrap>
+              <Typography variant="h4" noWrap sx={{color: darkMode ? 'white' : 'black'}}>
                 $15
               </Typography>
               <Typography variant="h4" sx={{ color: '#E44B23', mt: 1 }}>
                 /month
               </Typography>
-              <Typography variant="body1" sx={{ color: '#E44B23', mt: 2 }}>
+              <Typography variant="body1" sx={{ color: darkMode ? 'white' : 'black' , mt: 2 }}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...
               </Typography>
               <Box
@@ -215,12 +217,12 @@ function Wallets() {
                   justifyContent: 'center',
                 }}
               >
-                <button style={{ marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
+                <button style={{border:'none', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-
+        
       </Grid>
     </>
   );

@@ -12,11 +12,10 @@ import {
   Button,
   lighten,
   darken,
-  Tooltip
 } from '@mui/material';
-
 import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
+import { useMode } from 'src/hook/useMode';
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
@@ -34,7 +33,7 @@ function Sidebar() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const closeSidebar = () => toggleSidebar();
   const theme = useTheme();
-
+  const {darkMode} = useMode()
   return (
     <>
       <SidebarWrapper
@@ -46,14 +45,12 @@ function Sidebar() {
           position: 'fixed',
           left: 0,
           top: 0,
-          background:
-            theme.palette.mode === 'dark'
-              ? alpha(lighten(theme.header.background, 0.1), 0.5)
-              : darken(theme.colors.alpha.black[100], 1),
+          background: !darkMode ? "white" : darken(theme.colors.alpha.black[100], 1),
           boxShadow:
             theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
         }}
       >
+        
         <Scrollbar>
           <Box mt={3}>
             <Box
@@ -105,10 +102,7 @@ function Sidebar() {
       >
         <SidebarWrapper
           sx={{
-            background:
-              theme.palette.mode === 'dark'
-                ? theme.colors.alpha.white[100]
-                : darken(theme.colors.alpha.black[100], 1)
+            background: !darkMode ? "white" : darken(theme.colors.alpha.black[100], 1),
           }}
         >
           <Scrollbar>

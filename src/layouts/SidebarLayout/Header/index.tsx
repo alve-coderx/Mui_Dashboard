@@ -19,35 +19,37 @@ import CloseTwoToneIcon from '@mui/icons-material/CloseTwoTone';
 import HeaderButtons from './Buttons';
 import HeaderUserbox from './Userbox';
 import HeaderMenu from './Menu';
+import { useMode } from 'src/hook/useMode';
 
-const HeaderWrapper = styled(Box)(
-  ({ theme }) => `
-        height: ${theme.header.height};
-        color: ${theme.header.textColor};
-        padding: ${theme.spacing(0, 2)};
-        right: 0;
-        z-index: 6;
-        background-color: ${darken(theme.header.background, 1)};
-        backdrop-filter: blur(3px);
-        position: fixed;
-        justify-content: space-between;
-        width: 100%;
-        @media (min-width: ${theme.breakpoints.values.lg}px) {
-            left: ${theme.sidebar.width};
-            width: auto;
-        }
-`
-);
+
 
 function Header() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const theme = useTheme();
-
+  const {darkMode} = useMode()
+  const HeaderWrapper = styled(Box)(
+    ({ theme }) => `
+          height: ${theme.header.height};
+          padding: ${theme.spacing(0, 2)};
+          right: 0;
+          z-index: 6;
+          backdrop-filter: blur(3px);
+          position: fixed;
+          justify-content: space-between;
+          width: 100%;
+          @media (min-width: ${theme.breakpoints.values.lg}px) {
+              left: ${theme.sidebar.width};
+              width: auto;
+          }
+  `
+  );
   return (
     <HeaderWrapper
       display="flex"
       alignItems="center"
       sx={{
+        background : !darkMode ? "white" : darken(theme.colors.alpha.black[100], 1),
+        
         boxShadow:
           theme.palette.mode === 'dark'
             ? `0 1px 0 ${alpha(

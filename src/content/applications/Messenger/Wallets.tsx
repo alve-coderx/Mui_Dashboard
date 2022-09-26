@@ -16,6 +16,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+import { useMode } from 'src/hook/useMode';
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
     margin: ${theme.spacing(2, 0, 1, -0.5)};
@@ -77,6 +78,7 @@ const CardAddAction = styled(Card)(
 );
 
 function Wallets() {
+  const { darkMode} = useMode()
   return (
     <>
 
@@ -84,12 +86,10 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
             <Card
               sx={{
-                color: 'white',
                 p: 2,
-                border: '2px solid gray',
-                background: 'transparent',
+                border: !darkMode ? 'mone' : '2px solid gray',
+                background: !darkMode ? 'white' : 'transparent',
                 borderRadius : '34px'
-                
               }}
             >
               <CardContent>
@@ -100,9 +100,14 @@ function Wallets() {
                     justifyContent: 'space-between'
                   }}
                 >
-                  <Typography variant="h3" sx={{color : 'white'}} noWrap>
-                    Device 01
-                  </Typography>
+                  <Box>
+                    <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
+                      Device 01
+                    </Typography>
+                    <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
+                          $54,985.00
+                    </Typography>
+                  </Box>
                   <Box>
                     <Tooltip title="Delete Order" arrow>
                       <IconButton
@@ -136,12 +141,10 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
             <Card
               sx={{
-                color: 'white',
                 p: 2,
-                border: '2px solid gray',
-                background: 'transparent',
+                border: !darkMode ? 'mone' : '2px solid gray',
+                background: !darkMode ? 'white' : 'transparent',
                 borderRadius : '34px'
-                
               }}
             >
               <CardContent>
@@ -152,9 +155,14 @@ function Wallets() {
                     justifyContent: 'space-between'
                   }}
                 >
-                  <Typography variant="h3" sx={{color : 'white'}} noWrap>
-                    Device 01
-                  </Typography>
+                  <Box>
+                    <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
+                      Device 01
+                    </Typography>
+                    <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
+                          $54,985.00
+                    </Typography>
+                  </Box>
                   <Box>
                     <Tooltip title="Delete Order" arrow>
                       <IconButton
@@ -188,12 +196,10 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
             <Card
               sx={{
-                color: 'white',
                 p: 2,
-                border: '2px solid gray',
-                background: 'transparent',
+                border: !darkMode ? 'mone' : '2px solid gray',
+                background: !darkMode ? 'white' : 'transparent',
                 borderRadius : '34px'
-                
               }}
             >
               <CardContent>
@@ -204,9 +210,14 @@ function Wallets() {
                     justifyContent: 'space-between'
                   }}
                 >
-                  <Typography variant="h3" sx={{color : 'white'}} noWrap>
-                    Device 01
-                  </Typography>
+                  <Box>
+                    <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
+                      Device 01
+                    </Typography>
+                    <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
+                          $54,985.00
+                    </Typography>
+                  </Box>
                   <Box>
                     <Tooltip title="Delete Order" arrow>
                       <IconButton
@@ -240,12 +251,10 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
             <Card
               sx={{
-                color: 'white',
                 p: 2,
-                border: '2px solid gray',
-                background: 'transparent',
+                border: !darkMode ? 'mone' : '2px solid gray',
+                background: !darkMode ? 'white' : 'transparent',
                 borderRadius : '34px'
-                
               }}
             >
               <CardContent>
@@ -256,9 +265,14 @@ function Wallets() {
                     justifyContent: 'space-between'
                   }}
                 >
-                  <Typography variant="h3" sx={{color : 'white'}} noWrap>
-                    Device 01
-                  </Typography>
+                  <Box>
+                    <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
+                      Device 01
+                    </Typography>
+                    <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
+                          $54,985.00
+                    </Typography>
+                  </Box>
                   <Box>
                     <Tooltip title="Delete Order" arrow>
                       <IconButton
@@ -292,12 +306,10 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
             <Card
               sx={{
-                color: 'white',
                 p: 2,
-                border: '2px solid gray',
-                background: 'transparent',
+                border: !darkMode ? 'mone' : '2px solid gray',
+                background: !darkMode ? 'white' : 'transparent',
                 borderRadius : '34px'
-                
               }}
             >
               <CardContent>
@@ -308,9 +320,14 @@ function Wallets() {
                     justifyContent: 'space-between'
                   }}
                 >
-                  <Typography variant="h3" sx={{color : 'white'}} noWrap>
-                    Device 01
-                  </Typography>
+                  <Box>
+                    <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
+                      Device 01
+                    </Typography>
+                    <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
+                          $54,985.00
+                    </Typography>
+                  </Box>
                   <Box>
                     <Tooltip title="Delete Order" arrow>
                       <IconButton
@@ -344,12 +361,10 @@ function Wallets() {
         <Grid xs={12} sm={6} md={4} item>
             <Card
               sx={{
-                color: 'white',
                 p: 2,
-                border: '2px solid gray',
-                background: 'transparent',
+                border: !darkMode ? 'mone' : '2px solid gray',
+                background: !darkMode ? 'white' : 'transparent',
                 borderRadius : '34px'
-                
               }}
             >
               <CardContent>
@@ -360,9 +375,14 @@ function Wallets() {
                     justifyContent: 'space-between'
                   }}
                 >
-                  <Typography variant="h3" sx={{color : 'white'}} noWrap>
-                    Device 01
-                  </Typography>
+                  <Box>
+                    <Typography variant="h3" sx={{color : !darkMode ? '#1E1E1E' : 'white',}} noWrap>
+                      Device 01
+                    </Typography>
+                    <Typography sx={{fontSize : '10px',color : !darkMode ? '#1E1E1E' : 'white',}}>
+                          $54,985.00
+                    </Typography>
+                  </Box>
                   <Box>
                     <Tooltip title="Delete Order" arrow>
                       <IconButton

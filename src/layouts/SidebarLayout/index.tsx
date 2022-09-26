@@ -1,9 +1,10 @@
 import { FC, ReactNode } from 'react';
-import { Box, alpha, lighten, useTheme } from '@mui/material';
+import { Box, alpha, lighten, useTheme,Fab } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-
+import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import { useMode } from 'src/hook/useMode';
 
 interface SidebarLayoutProps {
   children?: ReactNode;
@@ -11,7 +12,8 @@ interface SidebarLayoutProps {
 
 const SidebarLayout: FC<SidebarLayoutProps> = () => {
   const theme = useTheme();
-
+  const { darkMode,setDarkMode } = useMode()
+  console.log(darkMode)
   return (
     <>
       <Box
@@ -55,7 +57,10 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
             }
           }}
         >
-          <Box display="block" sx={{background: '#1E1E1E'}}>
+          <Box display="block" sx={{background: !darkMode ? '#F9F9F9' : '#1E1E1E'}}>
+            <Fab onClick={() => setDarkMode(!darkMode)} color="secondary" aria-label="edit" sx={{borderTopLeftRadius : '0',borderBottomLeftRadius : '0'}}>
+              <Brightness4Icon />
+            </Fab>
             <Outlet />
           </Box>
         </Box>

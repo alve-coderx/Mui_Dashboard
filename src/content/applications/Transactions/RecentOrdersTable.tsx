@@ -30,6 +30,7 @@ import { CryptoOrder, CryptoOrderStatus } from 'src/models/crypto_order';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import BulkActions from './BulkActions';
+import { useMode } from 'src/hook/useMode';
 
 interface RecentOrdersTableProps {
   className?: string;
@@ -173,9 +174,9 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
   const selectedAllCryptoOrders =
     selectedCryptoOrders.length === cryptoOrders.length;
   const theme = useTheme();
-
+    const {darkMode} = useMode()
   return (
-    <Card style={{background : '#1E1E1E',color : 'white'}}>
+    <Card style={{background : !darkMode ? 'white' : '#1E1E1E',color : !darkMode ? 'black' : 'white'}}>
       {selectedBulkActions && (
         <Box flex={1} p={2}>
           <BulkActions />
@@ -230,7 +231,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                     />
                   </TableCell>
                   <TableCell>
-                    <Typography variant="body2" sx={{color : 'white'}} noWrap>
+                    <Typography variant="body2" sx={{color : darkMode ? 'white' : 'black'}} noWrap>
                       {cryptoOrder.orderDetails}
                     </Typography>
                   </TableCell>
