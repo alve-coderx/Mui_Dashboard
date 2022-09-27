@@ -21,10 +21,12 @@ function PageHeader() {
     bgcolor: darkMode ? 'black' : 'white',
     top: '50%',
     left: '50%',
+    display : 'flex',
+    flexWrap : 'wrap',
     transform: 'translate(-50%, -50%)',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    p: 10,
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,6 +42,8 @@ function PageHeader() {
       body: JSON.stringify(newDevice),
   })
       .then((res) => res.json())
+      .then(() => alert("Device Added"))
+
   }
   return (
     <Box sx={{display : 'flex',justifyContent : 'space-between',py:4}}>
@@ -81,32 +85,32 @@ function PageHeader() {
                       <CloseIcon/>
                   </IconButton>
                 </Box>
-                <Box sx={{display : 'flex',flexWrap:'nowrap',mt:5}}>
-                  <Box sx={{px : 2}}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={4}>
                     <label>Device Name</label><br/>
                     <input
                       style={{background : 'none',border : '2px solid',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
                       placeholder='Device Name'
                       onChange={(e) => setName(e.target.value)}
                     />
-                  </Box>
-                  <Box sx={{px : 2}}>
+                  </Grid>
+                  <Grid item xs={12} md={4}>
                     <label>Pairing Code</label><br/>
                     <input
                       style={{background : 'none',border : '2px solid',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
                       placeholder='Pairing Code'
                       onChange={(e) => setPairingCode(e.target.value)}
                     />
-                  </Box>
-                  <Box sx={{px : 2}}>
+                  </Grid>
+                  <Grid item xs={12} md={4}>
                     <label>Serial Number</label><br/>
                     <input
                       style={{background : 'none',border : '2px solid ',borderColor : darkMode ? 'white' : 'black' ,padding : '10px',borderRadius : '10px',color : 'white'}}
                       placeholder='Serial Number'
                       onChange={(e) => setSerial(e.target.value)}
                     />
-                  </Box>
-                </Box>
+                  </Grid>
+                </Grid>
                 <button type='submit' style={{cursor:'pointer',marginTop:"20px",background : '#E44B23',color : 'white',paddingTop : '10px',paddingBottom : '10px',paddingLeft : '25px',paddingRight : '25px',borderRadius : '10px'}}>Add Device</button>
               </form>
             </Box>

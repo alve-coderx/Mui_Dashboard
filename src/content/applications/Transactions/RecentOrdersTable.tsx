@@ -280,7 +280,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                               />
                             </Box>
                           </Box>
-                          <button onClick={() => handleSubmit(cryptoOrder.id)} style={{ marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '10px' }}>Add Device</button>
+                          <button onClick={() => handleSubmit(cryptoOrder.id)} style={{cursor : 'pointer', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '10px' }}>Add Device</button>
                       
                       </Box>
                     </Modal>

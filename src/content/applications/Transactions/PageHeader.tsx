@@ -39,6 +39,7 @@ function PageHeader() {
       body: JSON.stringify(newPlaylist),
   })
       .then((res) => alert('Playlist Added'))
+      .then(() => alert('Playlist Added'))
   }
 
   
@@ -92,7 +93,7 @@ function PageHeader() {
                     />
                   </Box>
                 </Box>
-                <button type='submit' style={{marginTop:"20px",background : '#E44B23',color : 'white',paddingTop : '10px',paddingBottom : '10px',paddingLeft : '25px',paddingRight : '25px',borderRadius : '10px'}}>Add Device</button>
+                <button type='submit' style={{cursor:'pointer',marginTop:"20px",background : '#E44B23',color : 'white',paddingTop : '10px',paddingBottom : '10px',paddingLeft : '25px',paddingRight : '25px',borderRadius : '10px'}}>Add Device</button>
               </form>
             </Box>
           </Modal>
