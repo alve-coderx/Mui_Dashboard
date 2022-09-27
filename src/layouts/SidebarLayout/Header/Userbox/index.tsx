@@ -22,6 +22,7 @@ import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import AccountBoxTwoToneIcon from '@mui/icons-material/AccountBoxTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
+import { useMode } from 'src/hook/useMode';
 
 const UserBoxButton = styled(Button)(
   ({ theme }) => `
@@ -61,9 +62,9 @@ const UserBoxDescription = styled(Typography)(
 
 function HeaderUserbox() {
   const user = {
-    name: 'Catherine Pike',
-    avatar: '/static/images/avatars/1.jpg',
-    jobtitle: 'Project Manager'
+    name: 'Metlinda Parker',
+    avatar: 'https://i.ibb.co/ynyFbvG/Group-54.png',
+    jobtitle: '@metlindaparker'
   };
 
   const ref = useRef<any>(null);
@@ -76,14 +77,15 @@ function HeaderUserbox() {
   const handleClose = (): void => {
     setOpen(false);
   };
+  const {darkMode} = useMode()
 
   return (
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
         <Hidden mdDown>
           <UserBoxText>
-            <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
-            <UserBoxDescription variant="body2">
+            <UserBoxLabel variant="body1" sx={{color : darkMode ? 'white' : 'black'}}>{user.name}</UserBoxLabel>
+            <UserBoxDescription variant="body2" sx={{color : darkMode ? 'white' : 'black'}}>
               {user.jobtitle}
             </UserBoxDescription>
           </UserBoxText>

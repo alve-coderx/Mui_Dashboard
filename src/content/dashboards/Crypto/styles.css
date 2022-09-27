@@ -1,0 +1,15 @@
+.imgbg{
+    content: '';
+    background-color: #E44B23;
+    position: absolute;
+    opacity: 0.4;
+    left: 400px;
+
+}
+
+
+.imgOpc  { 
+    position: absolute;
+    z-index: 0;    
+
+}

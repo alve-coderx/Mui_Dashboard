@@ -125,7 +125,7 @@ function Wallets() {
                   justifyContent: 'center',
                 }}
               >
-                <button style={{border:'none', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
+                <button style={{border:'none', marginTop: "45px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '10px'}}>Currently Active</button>
               </Box>
             </CardContent>
           </Card>
@@ -146,7 +146,7 @@ function Wallets() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  backgroundImage: `url(${bill1})`,
+                  backgroundImage: `url(${bill2})`,
                   backgroundRepeat: 'no-repeat'
                 }}
               >
@@ -171,7 +171,16 @@ function Wallets() {
                   justifyContent: 'center',
                 }}
               >
-                <button style={{border:'none', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
+                 <Button
+                href="/dashboards/devices"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outlined"
+                sx={{ color: '#E44B23', borderColor: '#E44B23',my:2,px:3,py:1  }}
+                size="small"
+              >
+            Get Started
+          </Button>
               </Box>
             </CardContent>
           </Card>
@@ -192,7 +201,7 @@ function Wallets() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  backgroundImage: `url(${bill1})`,
+                  backgroundImage: `url(${bill2})`,
                   backgroundRepeat: 'no-repeat'
                 }}
               >
@@ -217,7 +226,16 @@ function Wallets() {
                   justifyContent: 'center',
                 }}
               >
-                <button style={{border:'none', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '20px' }}>Currently Active</button>
+                <Button
+                href="/dashboards/devices"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outlined"
+                sx={{ color: '#E44B23', borderColor: '#E44B23',my:2,px:3,py:1  }}
+                size="small"
+              >
+            Get Started
+          </Button>
               </Box>
             </CardContent>
           </Card>

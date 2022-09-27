@@ -10,7 +10,8 @@ import {
   IconButton,
   Tooltip,
   styled,
-  useTheme
+  useTheme,
+  Typography
 } from '@mui/material';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import { SidebarContext } from 'src/contexts/SidebarContext';
@@ -70,22 +71,16 @@ function Header() {
         direction="row"
         divider={<Divider orientation="vertical" flexItem />}
         alignItems="center"
-        spacing={2}
+        spacing={1}
       >
-        <HeaderMenu />
-      </Stack>
-      <Box display="flex" alignItems="center">
-        <HeaderButtons />
-        <HeaderUserbox />
         <Box
           component="span"
           sx={{
-            ml: 2,
             display: { lg: 'none', xs: 'inline-block' }
           }}
         >
           <Tooltip arrow title="Toggle Menu">
-            <IconButton color="primary" onClick={toggleSidebar}>
+            <IconButton color="primary" onClick={toggleSidebar} sx={{color : darkMode ? 'white' : 'black'}}>
               {!sidebarToggle ? (
                 <MenuTwoToneIcon fontSize="small" />
               ) : (
@@ -94,6 +89,14 @@ function Header() {
             </IconButton>
           </Tooltip>
         </Box>
+        <Typography variant='h3' sx={{color : darkMode ? 'white' : 'black'}}>
+          Dashboard
+        </Typography>
+      </Stack>
+      <Box display="flex" alignItems="center">
+        <HeaderButtons />
+        <HeaderUserbox />
+        
       </Box>
     </HeaderWrapper>
   );

@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import Scrollbar from 'src/components/Scrollbar';
 import { SidebarContext } from 'src/contexts/SidebarContext';
-
+import logo from '../../../assets/logo.png'
+import logolg from '../../../assets/logolg.png'
 import {
   Box,
   Drawer,
@@ -16,6 +17,7 @@ import {
 import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
 import { useMode } from 'src/hook/useMode';
+import { Link } from 'react-router-dom';
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
@@ -33,7 +35,7 @@ function Sidebar() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const closeSidebar = () => toggleSidebar();
   const theme = useTheme();
-  const {darkMode} = useMode()
+  const { darkMode } = useMode()
   return (
     <>
       <SidebarWrapper
@@ -50,17 +52,19 @@ function Sidebar() {
             theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
         }}
       >
-        
+
         <Scrollbar>
           <Box mt={3}>
-            <Box
-              mx={2}
-              sx={{
-                width: 52
-              }}
-            >
-              <Logo />
-            </Box>
+            <Link to='/dashboards/devices'>
+              <Box
+                mx={2}
+                sx={{
+                  width: '240px'
+                }}
+              >
+                <img src={darkMode ? logo : logolg} style={{ width: '100%' }} />
+              </Box>
+            </Link>
           </Box>
           <Divider
             sx={{
@@ -78,11 +82,11 @@ function Sidebar() {
         />
         <Box p={2}>
           <Button
-            href="https://bloomui.com"
+            href="/dashboards/devices"
             target="_blank"
             rel="noopener noreferrer"
             variant="outlined"
-            sx={{color : '#E44B23',borderColor : '#E44B23'}}
+            sx={{ color: '#E44B23', borderColor: '#E44B23' }}
             size="small"
             fullWidth
           >
@@ -107,14 +111,16 @@ function Sidebar() {
         >
           <Scrollbar>
             <Box mt={3}>
-              <Box
-                mx={2}
-                sx={{
-                  width: 52
-                }}
-              >
-                <Logo />
-              </Box>
+              <Link to='/dashboards/devices'>
+                <Box
+                  mx={2}
+                  sx={{
+                    width: '240px'
+                  }}
+                >
+                  <img src={darkMode ? logo : logolg} style={{ width: '100%' }} />
+                </Box>
+              </Link>
             </Box>
             <Divider
               sx={{

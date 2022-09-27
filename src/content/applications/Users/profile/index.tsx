@@ -20,6 +20,7 @@ function DashboardCrypto() {
           justifyContent="center"
           alignItems="stretch"
           spacing={4}
+          sx={{py:4}}
           
         >
           <Grid item xs={12}>

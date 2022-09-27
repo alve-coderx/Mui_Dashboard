@@ -43,7 +43,7 @@ function PageHeader() {
 
   
   return (
-    <Box sx={{display : 'flex',justifyContent : 'space-between'}}>
+    <Box sx={{display : 'flex',justifyContent : 'space-between',py:4}}>
       <Box sx={{display : 'flex',alignItems : 'center'}}>
         <Grid item sx={{mr: 2}}>
           <Typography variant="h3" component="h3" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>

@@ -12,7 +12,7 @@ function PageHeader() {
   const theme = useTheme();
   const {darkMode} = useMode()
   return (
-    <Box sx={{display : 'flex',justifyContent : 'space-between',border:darkMode ? '2px solid white' : 'none',p:4,borderRadius : '20px'}}>
+    <Box sx={{display : 'flex',justifyContent : 'space-between',border:darkMode ? '2px solid white' : 'none',p:4,borderRadius : '20px',flexWrap:'wrap'}}>
       <Box sx={{display : 'flex',alignItems : 'center'}}>
         <Grid item sx={{mr: 2,display : 'flex',alignItems : 'center'}} >
           <img src={ring}/>

@@ -42,22 +42,22 @@ function PageHeader() {
       .then((res) => res.json())
   }
   return (
-    <Box sx={{display : 'flex',justifyContent : 'space-between'}}>
+    <Box sx={{display : 'flex',justifyContent : 'space-between',py:4}}>
       <Box sx={{display : 'flex',alignItems : 'center'}}>
         <Grid item sx={{mr: 2}}>
-          <Typography variant="h3" component="h3" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
+          <Typography variant="h3" component="h3" gutterBottom sx={{color : !darkMode ? 'black' : 'white',fontWeight:'bolder'}}>
               Today 
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle2" sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
+          <Typography variant="subtitle2" sx={{color : !darkMode ? 'black' : 'white',fontWeight:'bolder'}}>
              Mon 22, 2021 | 10:00 AM
           </Typography>
         </Grid>
       </Box>
       
       <Box 
-        sx={{background: !darkMode ? 'white' : '#3E3E3E',color : !darkMode ? '#1E1E1E' : 'white', border : '2px solid trasnparent',borderRadius : '20px',width : '250px'}}
+        sx={{background: !darkMode ? 'white' : '#3E3E3E',color : !darkMode ? 'black' : 'white', border : '2px solid trasnparent',borderRadius : '20px',width : '250px'}}
         >
           <Box onClick={handleOpen} sx={{display : 'flex',alignItems : 'center',justifyContent : 'space-around',cursor : 'pointer'}}>
             <Box>

@@ -193,6 +193,7 @@ function SidebarMenu() {
                   to="/dashboards/devices"
                   startIcon={<BrightnessLowTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts' }/>}
                   className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  onClick={closeSidebar}
                 >
                   Devices
                 </Button>
@@ -204,6 +205,8 @@ function SidebarMenu() {
                   to="/dashboards/media"
                   startIcon={<MmsTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
                   className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  onClick={closeSidebar}
+
                 >
                   Media
                 </Button>
@@ -215,6 +218,8 @@ function SidebarMenu() {
                   to="/management/playlists"
                   startIcon={<TableChartTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
                   className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  onClick={closeSidebar}
+
                 >
                   Playlist
                 </Button>
@@ -226,6 +231,8 @@ function SidebarMenu() {
                   to="/management/profile/billing"
                   startIcon={<AccountCircleTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
                   className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  onClick={closeSidebar}
+
                 >
                   Billing
                 </Button>
@@ -237,6 +244,8 @@ function SidebarMenu() {
                   to="/management/profile/settings"
                   startIcon={<DisplaySettingsTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
                   className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  onClick={closeSidebar}
+
                 >
                   Auth
                 </Button>
@@ -248,6 +257,8 @@ function SidebarMenu() {
                   to="/components/buttons"
                   startIcon={<BallotTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
                   className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  onClick={closeSidebar}
+
                 >
                   Setting
                 </Button>
@@ -259,6 +270,8 @@ function SidebarMenu() {
                   to="/components/modals"
                   startIcon={<BeachAccessTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
                   className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  onClick={closeSidebar}
+
                 >
                   Help & Support
                 </Button>

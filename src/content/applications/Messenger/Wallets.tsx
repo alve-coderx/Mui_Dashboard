@@ -79,6 +79,16 @@ const CardAddAction = styled(Card)(
 
 function Wallets({Item}) {
   const { darkMode} = useMode() 
+  const handleDelete = () => {
+    fetch(`https://kitecast-dev-api.azurewebsites.net/api/v1/customers/media/${Item.mediaId}/Fc64280c1ef74f9c9c8adb1906704362`,
+      {
+        method: 'DELETE'
+      })
+      .then((res) => {
+        alert("Deleted")
+      })
+  }
+
   return (
     <>
 
@@ -117,6 +127,7 @@ function Wallets({Item}) {
                           ml: 1
                         }}
                         size="small"
+                        onClick={() => handleDelete()}
                       >
                         <DeleteTwoToneIcon fontSize="small" />
                       </IconButton>

@@ -116,7 +116,7 @@ function Logo() {
           color="success"
         >
           <LogoSignWrapper>
-              <img style={{height : '100%',width : 'auto'}} src={darkMode ? logo : logolg}/>
+              <img style={{height : '100%',width : '100%'}} src={darkMode ? logo : logolg}/>
           </LogoSignWrapper>
         </Badge>
       </LogoWrapper>

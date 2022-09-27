@@ -22,9 +22,9 @@ import {
   MenuItem,
   Typography,
   useTheme,
-  CardHeader
+  Modal
 } from '@mui/material';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 import Label from 'src/components/Label';
 import { CryptoOrder, CryptoOrderStatus } from 'src/models/crypto_order';
@@ -32,6 +32,7 @@ import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import BulkActions from './BulkActions';
 import { useMode } from 'src/hook/useMode';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface RecentOrdersTableProps {
   className?: string;
@@ -96,16 +97,35 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
   const [filters, setFilters] = useState<Filters>({
     status: null
   });
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [name,setName] = useState("");
 
   const handleDelete = (id) => {
     fetch(`https://kitecast-dev-api.azurewebsites.net/api/v1/customers/playlists/${id}`,
-    { 
-      method: 'DELETE' 
-    })
-    .then((res)=>{
-      alert("Deleted")
-    })
+      {
+        method: 'DELETE'
+      })
+      .then((res) => {
+        alert("Deleted")
+      })
   }
+  const handleSubmit = (id) => {
+    const newPlaylist = {
+      "id" : id,
+      "ownerId": "Fc64280c1ef74f9c9c8adb1906704362",
+      "name": name,
+      "isActive" : true
+    }
+    fetch("https://kitecast-dev-api.azurewebsites.net/api/v1/customers/playlists", {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newPlaylist),
+  })
+      .then((res) => alert('Playlist Edited'))
+  }
+
   const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
     let value = null;
 
@@ -165,28 +185,40 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
   const selectedAllCryptoOrders =
     selectedCryptoOrders.length === cryptoOrders.length;
   const theme = useTheme();
-    const {darkMode} = useMode()
-    const [products, setProducts] = useState([]);
+  const { darkMode } = useMode()
+  const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        fetch('https://kitecast-dev-api.azurewebsites.net/api/v1/customers/playlists?customerId=Fc64280c1ef74f9c9c8adb1906704362')
-        .then((res) => res.json())
-        .then((data) => {
-          setProducts(data)
-          console.log(data)
-        })
-        .catch((err) => console.log(err));
-    }, []);
+  useEffect(() => {
+    fetch('https://kitecast-dev-api.azurewebsites.net/api/v1/customers/playlists?customerId=Fc64280c1ef74f9c9c8adb1906704362')
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data)
+        console.log(data)
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  const style = {
+    position: 'absolute' as 'absolute',
+    color: darkMode ? 'white' : 'black',
+    bgcolor: darkMode ? 'black' : 'white',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
   return (
-    <Card style={{background : !darkMode ? 'white' : '#1E1E1E',color : !darkMode ? 'black' : 'white'}}>
+    <Card style={{ background: !darkMode ? 'white' : '#1E1E1E', color: !darkMode ? 'black' : 'white' }}>
       {selectedBulkActions && (
         <Box flex={1} p={2}>
           <BulkActions />
         </Box>
       )}
-     
+
       <Divider />
-      <TableContainer>
+      <TableContainer sx={{minHeight : "300px"}}>
         <Table>
           <TableBody>
             {products.map((cryptoOrder) => {
@@ -200,7 +232,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                   selected={isCryptoOrderSelected}
                 >
                   <TableCell>
-                    <Typography variant="body2" sx={{color : darkMode ? 'white' : 'black'}} noWrap>
+                    <Typography variant="body2" sx={{ color: darkMode ? 'white' : 'black' }} noWrap>
                       {cryptoOrder.name}
                     </Typography>
                   </TableCell>
@@ -212,23 +244,54 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                             background: theme.colors.primary.lighter
                           },
                           color: '#FABB18',
-                          borderRadius : '50%',
-                          border : '2px solid #FABB18',
-                          ml : 1
+                          borderRadius: '50%',
+                          border: '2px solid #FABB18',
+                          ml: 1
                         }}
                         size="small"
+                        onClick={handleOpen}
                       >
                         <EditTwoToneIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <Box sx={style}>
+                       
+                          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <Typography id="modal-modal-title" variant="h2" component="h2">
+                              Edit {cryptoOrder.name}
+                            </Typography>
+                            <IconButton sx={{ color: darkMode ? 'white' : 'black' }} onClick={() => handleClose()}>
+                              <CloseIcon />
+                            </IconButton>
+                          </Box>
+                          <Box sx={{ display: 'flex', flexWrap: 'nowrap', mt: 5 }}>
+                            <Box sx={{ px: 2 }}>
+                              <label>Device Name</label><br/>
+                              <input
+                                style={{ background: 'none', border: '2px solid', borderColor: darkMode ? 'white' : 'black', padding: '10px', borderRadius: '10px', color: 'white' }}
+                                placeholder='Device Name'
+                                onChange={(e) => setName(e.target.value)}
+                              />
+                            </Box>
+                          </Box>
+                          <button onClick={() => handleSubmit(cryptoOrder.id)} style={{ marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '10px' }}>Add Device</button>
+                      
+                      </Box>
+                    </Modal>
                     <Tooltip title="Delete Order" arrow>
                       <IconButton
                         sx={{
                           '&:hover': { background: theme.colors.error.lighter },
                           color: '#E44B23',
-                          borderRadius : '50%',
-                          border : '2px solid #E44B23',
-                          ml : 1
+                          borderRadius: '50%',
+                          border: '2px solid #E44B23',
+                          ml: 1
                         }}
                         size="small"
                         onClick={() => handleDelete(cryptoOrder.id)}
@@ -245,7 +308,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
       </TableContainer>
       <Box p={2}>
         <TablePagination
-          sx={{color : 'white'}}
+          sx={{ color: 'white' }}
           component="div"
           count={filteredCryptoOrders.length}
           onPageChange={handlePageChange}
