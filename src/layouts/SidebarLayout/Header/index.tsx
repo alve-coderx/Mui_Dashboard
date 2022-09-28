@@ -101,7 +101,9 @@ function Header() {
       </Stack>
       <Box display="flex" alignItems="center">
         <HeaderButtons />
-        <HeaderUserbox />
+        {
+          isAuthenticated && <HeaderUserbox />
+        }
         
       </Box>
     </HeaderWrapper>

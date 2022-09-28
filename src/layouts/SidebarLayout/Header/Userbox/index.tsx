@@ -133,12 +133,7 @@ function HeaderUserbox() {
           </ListItem>
         </List>
         <Divider />
-        <Box sx={{ m: 1 }}>
-          <Button color="primary" fullWidth>
-            <LockOpenTwoToneIcon sx={{ mr: 1 }} />
-            Sign out
-          </Button>
-        </Box>
+        
       </Popover>
     </>
   );
