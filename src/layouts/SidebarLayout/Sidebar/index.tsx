@@ -60,7 +60,7 @@ function Sidebar() {
         <Scrollbar >
           <Box className={!isAuthenticated && 'blur' }>
             <Box mt={3}
-            className={!isAuthenticated && bw}
+            className={!isAuthenticated && 'bw'}
 
             >
               <Link to='/dashboards/devices'>
