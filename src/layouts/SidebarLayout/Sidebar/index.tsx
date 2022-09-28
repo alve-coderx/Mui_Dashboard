@@ -40,9 +40,9 @@ const style = {
   left: '3%',
   boxShadow: 24,
   color: 'white', borderColor: '#E44B23',
-  px: 3, py: 1,background:'#E44B23',
-  width : '200px',
-  
+  px: 3, py: 1, background: '#E44B23',
+  width: '200px',
+
 };
 function Sidebar() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
@@ -54,7 +54,7 @@ function Sidebar() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  setTimeout(handleOpen,1000)
+  setTimeout(handleOpen, 1000)
   const handleLogin = () => {
     loginWithRedirect()
     handleClose()
@@ -78,9 +78,9 @@ function Sidebar() {
       >
 
         <Scrollbar >
-          <Box className={!isAuthenticated && 'blur' }>
+          <Box className={!isAuthenticated && 'blur'}>
             <Box mt={3}
-            className={!isAuthenticated && 'bw'}
+              className={!isAuthenticated && 'bw'}
 
             >
               <Link to='/dashboards/devices'>
@@ -109,8 +109,8 @@ function Sidebar() {
             background: theme.colors.alpha.trueWhite[10]
           }}
         />
-        <Box p={2} 
-            
+        <Box p={2}
+
         >
           {/* {
             !isAuthenticated && (
@@ -128,27 +128,29 @@ function Sidebar() {
 
           } */}
           {
-            <>
-             <Modal
-               open={open}
-               aria-labelledby="modal-modal-title"
-               aria-describedby="modal-modal-description"
-             >
-               <Button
-               className='noneblur'
-                variant="contained"
-                sx={style}
-                onClick={() => handleLogin()}
-              >
-                Login
-              </Button>
-             </Modal>
-            </>
+            isAuthenticated && (
+              <>
+                <Modal
+                  open={open}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Button
+                    className='noneblur'
+                    variant="contained"
+                    sx={style}
+                    onClick={() => handleLogin()}
+                  >
+                    Login
+                  </Button>
+                </Modal>
+              </>
+            )
           }
           {
             isAuthenticated && (
               <Button
-              
+
                 variant="outlined"
                 fullWidth
                 sx={{ color: '#E44B23', borderColor: '#E44B23', px: 3, py: 1 }}
