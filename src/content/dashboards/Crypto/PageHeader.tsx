@@ -42,7 +42,8 @@ function PageHeader() {
       body: JSON.stringify(newDevice),
   })
       .then((res) => res.json())
-      .then(() => alert("Device Added"))
+      .then(() => handleClose())
+
 
   }
   return (

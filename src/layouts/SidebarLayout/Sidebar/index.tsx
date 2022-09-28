@@ -18,6 +18,7 @@ import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
 import { useMode } from 'src/hook/useMode';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
@@ -36,6 +37,8 @@ function Sidebar() {
   const closeSidebar = () => toggleSidebar();
   const theme = useTheme();
   const { darkMode } = useMode()
+  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0()
+  console.log(user)
   return (
     <>
       <SidebarWrapper
@@ -81,17 +84,32 @@ function Sidebar() {
           }}
         />
         <Box p={2}>
-          <Button
-            href="/dashboards/devices"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="outlined"
-            sx={{ color: '#E44B23', borderColor: '#E44B23' }}
-            size="small"
-            fullWidth
-          >
-            Logout
-          </Button>
+          {
+            !isAuthenticated && (
+
+              <Button
+                variant="outlined"
+                fullWidth
+                sx={{ color: '#E44B23', borderColor: '#E44B23', px: 3, py: 1 }}
+                onClick={() => loginWithRedirect()}
+              >
+                Login
+              </Button>
+            )
+
+          }
+          {
+            isAuthenticated && (
+              <Button
+                variant="outlined"
+                fullWidth
+                sx={{ color: '#E44B23', borderColor: '#E44B23', px: 3, py: 1 }}
+                onClick={() => logout()}
+              >
+                logout
+              </Button>
+            )
+          }
         </Box>
       </SidebarWrapper>
       <Drawer

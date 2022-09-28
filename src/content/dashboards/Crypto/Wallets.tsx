@@ -94,9 +94,7 @@ function Wallets({ Item }) {
       {
         method: 'DELETE'
       })
-      .then((res) => {
-        alert("Deleted")
-      })
+     
   }
 
   const handleSubmit = (e) => {
@@ -116,8 +114,7 @@ function Wallets({ Item }) {
       body: JSON.stringify(newDevice),
   })
       .then((res) => res.json())
-      .then(() => alert("Update Success"))
-  console.log(newDevice)
+      .then(() => handleClose())
   }
   const style = {
     position: 'absolute' as 'absolute',

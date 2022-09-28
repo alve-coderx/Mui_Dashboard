@@ -60,19 +60,6 @@ const Forms = Loader(lazy(() => import('src/content/pages/Components/Forms')));
 
 // Status
 
-const Status404 = Loader(
-  lazy(() => import('src/content/pages/Status/Status404'))
-);
-const Status500 = Loader(
-  lazy(() => import('src/content/pages/Status/Status500'))
-);
-const StatusComingSoon = Loader(
-  lazy(() => import('src/content/pages/Status/ComingSoon'))
-);
-const StatusMaintenance = Loader(
-  lazy(() => import('src/content/pages/Status/Maintenance'))
-);
-
 const routes: RouteObject[] = [
   {
     path: 'dashboards',

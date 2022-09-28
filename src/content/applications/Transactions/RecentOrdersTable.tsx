@@ -107,9 +107,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
       {
         method: 'DELETE'
       })
-      .then((res) => {
-        alert("Deleted")
-      })
+     
   }
   const handleSubmit = (id) => {
     const newPlaylist = {
@@ -123,7 +121,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newPlaylist),
   })
-      .then((res) => alert('Playlist Edited'))
+  .then((res)=> handleClose())
   }
 
   const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -196,7 +194,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
         console.log(data)
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [products]);
   const style = {
     position: 'absolute' as 'absolute',
     color: darkMode ? 'white' : 'black',

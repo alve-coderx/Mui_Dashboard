@@ -19,7 +19,7 @@ function DashboardCrypto() {
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [products]);
   return (
     <div style={{ paddingBottom: '200px' }}>
       <Helmet>

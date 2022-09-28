@@ -38,8 +38,7 @@ function PageHeader() {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newPlaylist),
   })
-      .then((res) => alert('Playlist Added'))
-      .then(() => alert('Playlist Added'))
+      .then(() => handleClose())
   }
 
   
