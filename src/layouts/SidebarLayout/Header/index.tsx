@@ -21,12 +21,14 @@ import HeaderButtons from './Buttons';
 import HeaderUserbox from './Userbox';
 import HeaderMenu from './Menu';
 import { useMode } from 'src/hook/useMode';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 
 function Header() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const theme = useTheme();
+  const {isAuthenticated} = useAuth0()
   const {darkMode} = useMode()
   const HeaderWrapper = styled(Box)(
     ({ theme }) => `
@@ -46,11 +48,11 @@ function Header() {
   );
   return (
     <HeaderWrapper
+      className={!isAuthenticated && 'blur' }
       display="flex"
       alignItems="center"
       sx={{
         background : !darkMode ? "white" : darken(theme.colors.alpha.black[100], 1),
-        
         boxShadow:
           theme.palette.mode === 'dark'
             ? `0 1px 0 ${alpha(
@@ -72,11 +74,15 @@ function Header() {
         divider={<Divider orientation="vertical" flexItem />}
         alignItems="center"
         spacing={1}
+        sx={{
+          
+
+        }}
       >
         <Box
           component="span"
           sx={{
-            display: { lg: 'none', xs: 'inline-block' }
+            display: { lg: 'none', xs: 'inline-block',}
           }}
         >
           <Tooltip arrow title="Toggle Menu">

@@ -32,6 +32,7 @@ import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
 import { useMode } from 'src/hook/useMode';
 import './style.css'
+import { useAuth0 } from '@auth0/auth0-react';
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -178,13 +179,14 @@ const SubMenuWrapper = styled(Box)(
 function SidebarMenu() {
   const { closeSidebar } = useContext(SidebarContext);
   const {darkMode} = useMode()
+  const {isAuthenticated} = useAuth0()
   return (
     <>
       <MenuWrapper>
         <List
           component="div"
         >
-          <SubMenuWrapper>
+          <SubMenuWrapper className={!isAuthenticated && 'bw'}> 
             <List component="div">
               <ListItem component="div">
                 <Button

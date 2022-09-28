@@ -1,0 +1,12 @@
+.blur{
+    filter: blur(1.2px);
+    scrollbar-width: none;
+}
+
+.bw{
+    filter: grayscale(100%);
+
+}
+.noneblur{
+    filter: blur(0)!important;
+}
