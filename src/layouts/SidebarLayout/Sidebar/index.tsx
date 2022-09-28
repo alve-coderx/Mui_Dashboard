@@ -112,21 +112,7 @@ function Sidebar() {
         <Box p={2}
 
         >
-          {/* {
-            !isAuthenticated && (
-
-              <Button
-                className='noneblur'
-                variant="contained"
-                fullWidth
-                sx={{ color: 'white', borderColor: '#E44B23', px: 3, py: 1,background:'#E44B23' }}
-                onClick={() => loginWithRedirect()}
-              >
-                Login
-              </Button>
-            )
-
-          } */}
+          
           {
             !isAuthenticated && (
               <>
@@ -199,6 +185,28 @@ function Sidebar() {
             />
             <SidebarMenu />
           </Scrollbar>
+          <Divider
+          sx={{
+            background: theme.colors.alpha.trueWhite[10]
+          }}
+        />
+        <Box p={1}
+
+        >
+          {
+            isAuthenticated && (
+              <Button
+
+                variant="outlined"
+                fullWidth
+                sx={{ color: '#E44B23', borderColor: '#E44B23', px: 3, py: 1 }}
+                onClick={() => logout()}
+              >
+                logout
+              </Button>
+            )
+          }
+        </Box>
         </SidebarWrapper>
       </Drawer>
     </>

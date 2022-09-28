@@ -66,7 +66,6 @@ function HeaderUserbox() {
 
   const ref = useRef<any>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
-
   const handleOpen = (): void => {
     setOpen(true);
   };
@@ -75,7 +74,7 @@ function HeaderUserbox() {
     setOpen(false);
   };
   const {darkMode} = useMode()
-  const {user} = useAuth0()
+  const {user,logout} = useAuth0()
   return (
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
