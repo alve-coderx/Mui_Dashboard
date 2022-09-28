@@ -7,20 +7,20 @@ import './style.css'
 import {
   Box,
   Drawer,
-  alpha,
   styled,
   Divider,
   useTheme,
   Button,
-  lighten,
   darken,
+  Modal,
 } from '@mui/material';
 import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
 import { useMode } from 'src/hook/useMode';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-
+import * as React from 'react';
+import Typography from '@mui/material/Typography';
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
         width: ${theme.sidebar.width};
@@ -33,12 +33,32 @@ const SidebarWrapper = styled(Box)(
 `
 );
 
+
+const style = {
+  position: 'absolute',
+  top: '94%',
+  left: '3%',
+  boxShadow: 24,
+  color: 'white', borderColor: '#E44B23',
+  px: 3, py: 1,background:'#E44B23',
+  width : '200px',
+  
+};
 function Sidebar() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const closeSidebar = () => toggleSidebar();
   const theme = useTheme();
   const { darkMode } = useMode()
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0()
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  setTimeout(handleOpen,1000)
+  const handleLogin = () => {
+    loginWithRedirect()
+    handleClose()
+  }
   console.log(user)
   return (
     <>
@@ -92,7 +112,7 @@ function Sidebar() {
         <Box p={2} 
             
         >
-          {
+          {/* {
             !isAuthenticated && (
 
               <Button
@@ -106,10 +126,29 @@ function Sidebar() {
               </Button>
             )
 
+          } */}
+          {
+            <>
+             <Modal
+               open={open}
+               aria-labelledby="modal-modal-title"
+               aria-describedby="modal-modal-description"
+             >
+               <Button
+               className='noneblur'
+                variant="contained"
+                sx={style}
+                onClick={() => handleLogin()}
+              >
+                Login
+              </Button>
+             </Modal>
+            </>
           }
           {
             isAuthenticated && (
               <Button
+              
                 variant="outlined"
                 fullWidth
                 sx={{ color: '#E44B23', borderColor: '#E44B23', px: 3, py: 1 }}
