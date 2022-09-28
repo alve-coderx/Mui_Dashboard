@@ -128,7 +128,7 @@ function Sidebar() {
 
           } */}
           {
-            isAuthenticated && (
+            !isAuthenticated && (
               <>
                 <Modal
                   open={open}
