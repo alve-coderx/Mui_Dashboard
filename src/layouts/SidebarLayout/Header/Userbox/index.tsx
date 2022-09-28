@@ -23,6 +23,7 @@ import AccountBoxTwoToneIcon from '@mui/icons-material/AccountBoxTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import { useMode } from 'src/hook/useMode';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const UserBoxButton = styled(Button)(
   ({ theme }) => `
@@ -61,11 +62,7 @@ const UserBoxDescription = styled(Typography)(
 );
 
 function HeaderUserbox() {
-  const user = {
-    name: 'Metlinda Parker',
-    avatar: 'https://i.ibb.co/ynyFbvG/Group-54.png',
-    jobtitle: '@metlindaparker'
-  };
+
 
   const ref = useRef<any>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -78,19 +75,19 @@ function HeaderUserbox() {
     setOpen(false);
   };
   const {darkMode} = useMode()
-
+  const {user} = useAuth0()
   return (
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
         <Hidden mdDown>
           <UserBoxText>
-            <UserBoxLabel variant="body1" sx={{color : darkMode ? 'white' : 'black'}}>{user.name}</UserBoxLabel>
+            <UserBoxLabel variant="body1" sx={{color : darkMode ? 'white' : 'black'}}>{user?.given_name}</UserBoxLabel>
             <UserBoxDescription variant="body2" sx={{color : darkMode ? 'white' : 'black'}}>
-              {user.jobtitle}
+              {user?.email}
             </UserBoxDescription>
           </UserBoxText>
         </Hidden>
-        <Avatar variant="rounded" alt={user.name} src={user.avatar} />
+        <Avatar variant="rounded" alt={user?.given_name} src={user?.picture} />
         <Hidden smDown>
           <ExpandMoreTwoToneIcon sx={{ ml: 1 }} />
         </Hidden>
@@ -109,11 +106,11 @@ function HeaderUserbox() {
         }}
       >
         <MenuUserBox sx={{ minWidth: 210 }} display="flex">
-          <Avatar variant="rounded" alt={user.name} src={user.avatar} />
+        <Avatar variant="rounded" alt={user?.given_name} src={user?.picture} />
           <UserBoxText>
-            <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
+            <UserBoxLabel variant="body1">{user?.given_name}</UserBoxLabel>
             <UserBoxDescription variant="body2">
-              {user.jobtitle}
+              {user?.email}
             </UserBoxDescription>
           </UserBoxText>
         </MenuUserBox>
