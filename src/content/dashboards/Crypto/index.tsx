@@ -1,53 +1,44 @@
 import { Helmet } from 'react-helmet-async';
 import PageHeader from './PageHeader';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
-import { Container, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import Footer from 'src/components/Footer';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
-
 import AccountBalance from './AccountBalance';
 import Wallets from './Wallets';
 import AccountSecurity from './AccountSecurity';
 import WatchList from './WatchList';
 import { useEffect, useState } from 'react';
+import { Box } from '@mui/system';
 
 function DashboardCrypto() {
- const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-      fetch('https://kitecast-dev-api.azurewebsites.net/api/v1/customers/players/Fc64280c1ef74f9c9c8adb1906704362')
+    fetch('https://kitecast-dev-api.azurewebsites.net/api/v1/customers/players/Fc64280c1ef74f9c9c8adb1906704362')
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
   }, [products]);
   return (
-    <div style={{ paddingBottom: '200px' }}>
+    <div style={{ minHeight: '90vh' }}>
       <Helmet>
         <title>Crypto Dashboard</title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader />
       </PageTitleWrapper>
-      <Container maxWidth="lg">
+      <Box sx={{ width: '100%' }}>
         <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="stretch"
-          spacing={4}
-
+          container sx={{ px: 3 }} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         >
-          <Grid item xs={12}>
-          <Grid container spacing={3}>
-                {
-                  products?.map((item)=>(
-                    <Wallets Item={item} key={item.id}/>
-                  ))
-                }
-          </Grid>
-          </Grid>
+            {
+              products?.map((item) => (
+                <Wallets Item={item} key={item.id} />
+              ))
+            }
         </Grid>
-      </Container>
+      </Box>
     </div>
   );
 }

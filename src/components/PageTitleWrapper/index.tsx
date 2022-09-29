@@ -14,7 +14,7 @@ interface PageTitleWrapperProps {
 const PageTitleWrapper: FC<PageTitleWrapperProps> = ({ children }) => {
   return (
     <PageTitle className="">
-      <Container maxWidth="lg">{children}</Container>
+      <Box sx={{px:3}}>{children}</Box>
     </PageTitle>
   );
 };

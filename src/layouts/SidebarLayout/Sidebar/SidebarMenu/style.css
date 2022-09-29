@@ -1,14 +1,9 @@
-.lightFonts {
-    color : white!important
-}
 
 .darkFonts{
     color : black!important
 }
 
-.darkFonts:active{
-    color : white
-}
-.lightFonts:active{
-    color : white
+
+.acjsdh{
+    color: red;
 }

@@ -46,13 +46,14 @@ function PageHeader() {
     <Box sx={{display : 'flex',justifyContent : 'space-between',py:4}}>
       <Box sx={{display : 'flex',alignItems : 'center'}}>
         <Grid item sx={{mr: 2}}>
-          <Typography variant="h3" component="h3" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
+          <Typography variant="h1" component="h1" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
               Today 
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle2" sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
-             Mon 22, 2021 | 10:00 AM
+        <Typography variant="subtitle2" sx={{ color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
+          {new Date().getDate()}, {new Date().getFullYear()} | {new Date().toLocaleTimeString()}
+
           </Typography>
         </Grid>
       </Box>

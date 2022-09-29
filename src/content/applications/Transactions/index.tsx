@@ -7,26 +7,25 @@ import RecentOrders from './RecentOrders';
 function ApplicationsTransactions() {
   
   return (
-    <div style={{paddingBottom : '310px'}}>
+    <div style={{minHeight : '84vh'}}>
       <Helmet>
         <title>Transactions - Applications</title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader />
       </PageTitleWrapper>
-      <Container maxWidth="lg">
         <Grid
           container
           direction="row"
           justifyContent="center"
           alignItems="stretch"
           spacing={3}
+          sx={{p:3}}
         >
           <Grid item xs={12}>
             <RecentOrders />
           </Grid>
         </Grid>
-      </Container>
     </div>
   );
 }

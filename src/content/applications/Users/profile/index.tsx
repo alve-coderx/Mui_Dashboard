@@ -13,14 +13,13 @@ function DashboardCrypto() {
       <PageTitleWrapper>
         <PageHeader />
       </PageTitleWrapper>
-      <Container maxWidth="lg">
         <Grid
           container
           direction="row"
           justifyContent="center"
           alignItems="stretch"
           spacing={4}
-          sx={{py:4}}
+          sx={{px:4,py:3}}
           
         >
           <Grid item xs={12}>
@@ -28,7 +27,6 @@ function DashboardCrypto() {
           </Grid>
          
         </Grid>
-      </Container>
     </div>
   );
 }

@@ -16,8 +16,8 @@ function PageHeader() {
       <Box sx={{display : 'flex',alignItems : 'center'}}>
         <Grid item sx={{mr: 2,display : 'flex',alignItems : 'center'}} >
           <img src={ring}/>
-          <Typography variant="h3" component="h3" gutterBottom sx={{ml: 1,color : darkMode ? 'white' : 'black'}}>
-              Free
+          <Typography variant="h1" component="h1" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
+              Free 
           </Typography>
         </Grid>
         <Grid item>

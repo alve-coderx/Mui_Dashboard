@@ -31,9 +31,16 @@ import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwo
 import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
 import { useMode } from 'src/hook/useMode';
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
+import SubscriptionsOutlinedIcon from '@mui/icons-material/SubscriptionsOutlined';
+import QueueMusicOutlinedIcon from '@mui/icons-material/QueueMusicOutlined';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import SettingsIcon from '@mui/icons-material/Settings';
+import SupportIcon from '@mui/icons-material/Support';
 import './style.css'
 import { useAuth0 } from '@auth0/auth0-react';
-
+import deviceIco from './deviceIco.png'
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
   .MuiList-root {
@@ -79,9 +86,9 @@ const SubMenuWrapper = styled(Box)(
           display: flex;
           color: ${theme.colors.alpha.trueWhite[70]};
           background-color: transparent;
-          width: 100%;
+          width: 90%;
           justify-content: flex-start;
-          padding: ${theme.spacing(1.2, 3)};
+          padding: ${theme.spacing(1.8, 3)};
 
           .MuiButton-startIcon,
           .MuiButton-endIcon {
@@ -193,8 +200,8 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/dashboards/devices"
-                  startIcon={<BrightnessLowTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts' }/>}
-                  className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  startIcon={<GridViewOutlinedIcon className={!darkMode && 'darkFonts'}/>}
+                  className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
                 >
                   Devices
@@ -205,8 +212,8 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/dashboards/media"
-                  startIcon={<MmsTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
-                  className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  startIcon={<SubscriptionsOutlinedIcon className={!darkMode && 'darkFonts'}/>}
+                  className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
@@ -218,8 +225,8 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/management/playlists"
-                  startIcon={<TableChartTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
-                  className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  startIcon={<QueueMusicOutlinedIcon className={!darkMode && 'darkFonts'}/>}
+                  className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
@@ -231,8 +238,8 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/management/profile/billing"
-                  startIcon={<AccountCircleTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
-                  className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  startIcon={<DescriptionOutlinedIcon className={!darkMode && 'darkFonts'}/>}
+                  className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
@@ -244,8 +251,8 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/management/profile/settings"
-                  startIcon={<DisplaySettingsTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
-                  className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  startIcon={<LocalPoliceIcon className={!darkMode && 'darkFonts'}/>}
+                  className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
@@ -257,8 +264,8 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/components/buttons"
-                  startIcon={<BallotTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
-                  className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  startIcon={<SettingsIcon className={!darkMode && 'darkFonts'}/>}
+                  className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
@@ -270,8 +277,8 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/components/modals"
-                  startIcon={<BeachAccessTwoToneIcon className={darkMode ? 'lightFonts' : 'darkFonts'}/>}
-                  className={darkMode ? 'lightFonts' : 'darkFonts'}
+                  startIcon={<SupportIcon className={!darkMode && 'darkFonts'}/>}
+                  className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >

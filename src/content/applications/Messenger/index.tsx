@@ -18,34 +18,20 @@ function DashboardCrypto() {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div style={{paddingBottom : '210px'}}>
+    <div style={{minHeight: '90vh' }}>
       <Helmet>
         <title>Crypto Dashboard</title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader />
       </PageTitleWrapper>
-      <Container maxWidth="lg">
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="stretch"
-          spacing={4}
-          
-        >
-         <Grid item xs={12}>
-          <Grid container spacing={3}>
+         <Grid sx={{ px: 3 }} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {
                   products?.map((item)=>(
                     <Wallets key={item.mediaId} Item={item}/>
                   ))
                 }
           </Grid>
-          </Grid>
-         
-        </Grid>
-      </Container>
     </div>
   );
 }

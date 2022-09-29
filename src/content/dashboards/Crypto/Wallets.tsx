@@ -19,7 +19,8 @@ import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import device from '../../../assets/device.png'
 import { useMode } from 'src/hook/useMode';
 import CloseIcon from '@mui/icons-material/Close';
-import {useState} from 'react'
+import { useState } from 'react'
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
     margin: ${theme.spacing(2, 0, 1, -0.5)};
@@ -87,32 +88,32 @@ function Wallets({ Item }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [name,setName] = useState("");
-  const [serial,setSerial] = useState("");
+  const [name, setName] = useState("");
+  const [serial, setSerial] = useState("");
   const handleDelete = () => {
     fetch(`https://kitecast-dev-api.azurewebsites.net/api/v1/customers/players/${Item.id}`,
       {
         method: 'DELETE'
       })
-     
+
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newDevice = {
-        "id": Item.id,
-        "deviceName": name,
-        "serialNumber": serial,
-        "pairingCode": Item.pairingCode,
-        "ownerId": "Fc64280c1ef74f9c9c8adb1906704362",
-        "isActive": true,
-        "playlistId": Item.id
+      "id": Item.id,
+      "deviceName": name,
+      "serialNumber": serial,
+      "pairingCode": Item.pairingCode,
+      "ownerId": "Fc64280c1ef74f9c9c8adb1906704362",
+      "isActive": true,
+      "playlistId": Item.id
     }
     fetch("https://kitecast-dev-api.azurewebsites.net/api/v1/customers/players", {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newDevice),
-  })
+    })
       .then((res) => res.json())
       .then(() => handleClose())
   }
@@ -128,145 +129,142 @@ function Wallets({ Item }) {
     p: 4,
   };
   return (
-    <>
-      <Grid xs={12} sm={6} md={4} item>
-        <Card
-          sx={{
-            p: 2,
-            border: !darkMode ? 'mone' : '2px solid gray',
-            background: !darkMode ? 'white' : 'transparent',
-            borderRadius: '34px'
-
-          }}
-        >
-          <CardContent>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between'
-              }}
-            >
-              <Tooltip title={Item.id} arrow>
-                <Typography variant="h3" sx={{ color: !darkMode ? '#1E1E1E' : 'white', }} noWrap>
-                  {Item.deviceName}
-                </Typography>
-              </Tooltip>
-              <Box>
-                <Tooltip title="Edit Order" arrow>
-                  <IconButton
-                    sx={{
-                      color: '#FABB18',
-                      borderRadius: '50%',
-                      border: '2px solid #FABB18',
-                      ml: 1
-                    }}
-                    size="small"
-                    onClick={handleOpen}
-                  >
-                    <EditTwoToneIcon fontSize="small" />
-
-                  </IconButton>
-                </Tooltip>
-                <Modal
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
+    <Grid item md={4} sm={6} xs={12}>
+      <Card
+        sx={{
+          p:2,
+          border: !darkMode ? 'mone' : '2px solid gray',
+          background: !darkMode ? 'white' : 'transparent',
+          borderRadius: '34px',
+        }}
+      >
+        <CardContent>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              py:2
+            }}
+          >
+            <Tooltip title={Item.id} arrow>
+              <Typography variant="h3" sx={{ color: !darkMode ? '#1E1E1E' : 'white', }} noWrap>
+                {Item.deviceName}
+              </Typography>
+            </Tooltip>
+            <Box>
+              <Tooltip title="Edit Order" arrow>
+                <IconButton
+                  sx={{
+                    color: '#FABB18',
+                    borderRadius: '50%',
+                    border: '2px solid #FABB18',
+                    ml: 1
+                  }}
+                  size="small"
+                  onClick={handleOpen}
                 >
-                  <Box sx={style}>
-                    <form onSubmit={handleSubmit}>
-                      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Typography id="modal-modal-title" variant="h2" component="h2">
-                          Edit {Item.deviceName}
-                        </Typography>
-                        <IconButton sx={{ color: darkMode ? 'white' : 'black' }} onClick={() => handleClose()}>
-                          <CloseIcon />
-                        </IconButton>
-                      </Box>
-                      <Box sx={{ display: 'flex', flexWrap: 'nowrap', mt: 5 }}>
-                        <Box sx={{ px: 2 }}>
-                          <label>Device Name</label><br />
-                          <input
-                            style={{ background: 'none', border: '2px solid', borderColor: darkMode ? 'white' : 'black', padding: '10px', borderRadius: '10px', color: 'white' }}
-                            placeholder='Device Name'
-                            onChange={(e) => setName(e.target.value)}
-                          />
-                        </Box>
-                        <Box sx={{ px: 2 }}>
-                          <label>Pairing Code</label><br />
-                          <input
-                            style={{ background: 'none', border: '2px solid', borderColor: darkMode ? 'white' : 'black', padding: '10px', borderRadius: '10px', color: 'white' }}
-                            placeholder='Pairing Code'
-                            disabled
-                            value={Item.pairingCode}
-                          />
-                        </Box>
-                        <Box sx={{ px: 2 }}>
-                          <label>Serial Number</label><br />
-                          <input
-                            style={{ background: 'none', border: '2px solid ', borderColor: darkMode ? 'white' : 'black', padding: '10px', borderRadius: '10px', color: 'white' }}
-                            placeholder='Serial Number'
-                            onChange={(e) => setSerial(e.target.value)}
-                          />
-                        </Box>
-                      </Box>
-                      <button type='submit' style={{ cursor: 'pointer', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '10px' }}>Add Device</button>
-                    </form>
-                  </Box>
-                </Modal>
-                <Tooltip title="Delete Order" arrow>
-                  <IconButton
-                    sx={{
-                      color: '#E44B23',
-                      borderRadius: '50%',
-                      border: '2px solid #E44B23',
-                      ml: 1
-                    }}
-                    size="small"
-                    onClick={() => handleDelete()}
-                  >
-                    <DeleteTwoToneIcon fontSize="small" />
-                  </IconButton>
-                </Tooltip>
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                pt: 3
-              }}
-            >
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',py:2 }}>
-                <Box>
-                  <Box>
-                    <Typography sx={{ fontSize: '10px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
-                      Pairing Code
-                    </Typography>
-                    <Typography sx={{ fontSize: '15px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
-                      {Item.pairingCode}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ pt: 2 }}>
-                    <Typography sx={{ fontSize: '10px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
-                      Serial Number
-                    </Typography >
-                    <Tooltip title={Item.serialNumber}>
-                      <Typography sx={{ fontSize: '15px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
-                        {Item.serialNumber.slice(0, 15)}..
-                      </Typography>
-                    </Tooltip>
-                  </Box>
-                </Box>
-                <Box sx={{ background: darkMode ? '#32221E' : '#FBE1D7', p: 3, borderRadius: '20px' }}>
-                  <img src={device} />
-                </Box>
-              </Box>
-            </Box>
-          </CardContent>
-        </Card>
-      </Grid>
+                  <EditTwoToneIcon fontSize="small" />
 
-    </>
+                </IconButton>
+              </Tooltip>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <form onSubmit={handleSubmit}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <Typography id="modal-modal-title" variant="h2" component="h2">
+                        Edit {Item.deviceName}
+                      </Typography>
+                      <IconButton sx={{ color: darkMode ? 'white' : 'black' }} onClick={() => handleClose()}>
+                        <CloseIcon />
+                      </IconButton>
+                    </Box>
+                    <Box sx={{ display: 'flex', flexWrap: 'nowrap', mt: 5 }}>
+                      <Box sx={{ px: 2 }}>
+                        <label>Device Name</label><br />
+                        <input
+                          style={{ background: 'none', border: '2px solid', borderColor: darkMode ? 'white' : 'black', padding: '10px', borderRadius: '10px', color: 'white' }}
+                          placeholder='Device Name'
+                          onChange={(e) => setName(e.target.value)}
+                        />
+                      </Box>
+                      <Box sx={{ px: 2 }}>
+                        <label>Pairing Code</label><br />
+                        <input
+                          style={{ background: 'none', border: '2px solid', borderColor: darkMode ? 'white' : 'black', padding: '10px', borderRadius: '10px', color: 'white' }}
+                          placeholder='Pairing Code'
+                          disabled
+                          value={Item.pairingCode}
+                        />
+                      </Box>
+                      <Box sx={{ px: 2 }}>
+                        <label>Serial Number</label><br />
+                        <input
+                          style={{ background: 'none', border: '2px solid ', borderColor: darkMode ? 'white' : 'black', padding: '10px', borderRadius: '10px', color: 'white' }}
+                          placeholder='Serial Number'
+                          onChange={(e) => setSerial(e.target.value)}
+                        />
+                      </Box>
+                    </Box>
+                    <button type='submit' style={{ cursor: 'pointer', marginTop: "20px", background: '#E44B23', color: 'white', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '25px', paddingRight: '25px', borderRadius: '10px' }}>Add Device</button>
+                  </form>
+                </Box>
+              </Modal>
+              <Tooltip title="Delete Order" arrow>
+                <IconButton
+                  sx={{
+                    color: '#E44B23',
+                    borderRadius: '50%',
+                    border: '2px solid #E44B23',
+                    ml: 1
+                  }}
+                  size="small"
+                  onClick={() => handleDelete()}
+                >
+                  <DeleteTwoToneIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              pt: 3
+            }}
+          >
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 2 }}>
+              <Box>
+                <Box>
+                  <Typography sx={{ fontSize: '10px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
+                    Pairing Code
+                  </Typography>
+                  <Typography sx={{ fontSize: '15px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
+                    {Item.pairingCode}
+                  </Typography>
+                </Box>
+                <Box sx={{ pt: 2 }}>
+                  <Typography sx={{ fontSize: '10px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
+                    Serial Number
+                  </Typography >
+                  <Tooltip title={Item.serialNumber}>
+                    <Typography sx={{ fontSize: '15px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
+                      {Item.serialNumber.slice(0, 15)}..
+                    </Typography>
+                  </Tooltip>
+                </Box>
+              </Box>
+              <Box sx={{ background: darkMode ? '#32221E' : '#FBE1D7', p: 3, borderRadius: '20px' }}>
+                <img src={device} />
+              </Box>
+            </Box>
+          </Box>
+        </CardContent>
+      </Card>
+    </Grid>
   );
 }
 
