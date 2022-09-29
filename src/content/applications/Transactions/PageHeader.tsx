@@ -43,15 +43,15 @@ function PageHeader() {
 
   
   return (
-    <Box sx={{display : 'flex',justifyContent : 'space-between',py:4}}>
+    <Box sx={{display : 'flex',justifyContent : 'space-between',py:4,flexWrap : 'wrap',alignItems : 'center'  }}>
       <Box sx={{display : 'flex',alignItems : 'center'}}>
         <Grid item sx={{mr: 2}}>
-          <Typography variant="h1" component="h1" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
+          <Typography variant="h1" component="h1" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white',fontSize:'54px',fontWeight: '400'}}>
               Today 
           </Typography>
         </Grid>
         <Grid item>
-        <Typography variant="subtitle2" sx={{ color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
+        <Typography variant="subtitle2" sx={{ color: !darkMode ? 'black' : 'white', fontWeight: '400',fontSize : '28px' }} >
           {new Date().getDate()}, {new Date().getFullYear()} | {new Date().toLocaleTimeString()}
 
           </Typography>

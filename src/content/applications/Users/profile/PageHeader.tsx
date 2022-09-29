@@ -13,7 +13,7 @@ function PageHeader() {
   const {darkMode} = useMode()
   return (
     <Box sx={{display : 'flex',justifyContent : 'space-between',border:darkMode ? '2px solid white' : 'none',p:4,borderRadius : '20px',flexWrap:'wrap'}}>
-      <Box sx={{display : 'flex',alignItems : 'center'}}>
+      <Box sx={{display : 'flex',alignItems : 'center',flexWrap : 'wrap'}}>
         <Grid item sx={{mr: 2,display : 'flex',alignItems : 'center'}} >
           <img src={ring}/>
           <Typography variant="h1" component="h1" gutterBottom sx={{color : !darkMode ? '#1E1E1E' : 'white'}}>
@@ -21,13 +21,13 @@ function PageHeader() {
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle2" sx={{color : darkMode ? 'white' : 'black'}}>
+          <Typography variant="subtitle2" sx={{color : darkMode ? 'white' : 'black',fontSize : '28px'}} style={{fontWeight : '400'}}>
               Currently Active Plan
           </Typography>
         </Grid>
       </Box>
       
-      <Box sx={{display : 'flex',alignItems : 'center'}}>
+      <Box sx={{display : 'flex',alignItems : 'center',flexWrap : 'wrap'}}>
           <Typography variant="subtitle2" sx={{color : darkMode ? 'white' : 'black',mr : 2}}>
                 Will be expired on 15, September 2023
           </Typography>

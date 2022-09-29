@@ -14,11 +14,11 @@ const redirect = window.location.origin + '/dashboards/devices'
 ReactDOM.render(
   <Auth0Provider domain={domain} clientId={cliid} redirectUri={redirect}>
     <HelmetProvider>
-      <SidebarProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </SidebarProvider>
+        <SidebarProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </SidebarProvider>
     </HelmetProvider>
   </Auth0Provider>,
   document.getElementById('root')

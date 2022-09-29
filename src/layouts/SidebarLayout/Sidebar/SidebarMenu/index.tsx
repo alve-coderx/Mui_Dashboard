@@ -156,9 +156,9 @@ const SubMenuWrapper = styled(Box)(
                 background: ${theme.colors.alpha.trueWhite[100]};
                 opacity: 0;
                 transition: ${theme.transitions.create([
-                  'transform',
-                  'opacity'
-                ])};
+    'transform',
+    'opacity'
+  ])};
                 width: 6px;
                 height: 6px;
                 transform: scale(0);
@@ -183,28 +183,30 @@ const SubMenuWrapper = styled(Box)(
 `
 );
 
-function SidebarMenu() {
+function SidebarMenu({ mainopen }) {
+  console.log(mainopen)
   const { closeSidebar } = useContext(SidebarContext);
-  const {darkMode} = useMode()
-  const {isAuthenticated} = useAuth0()
+  const { darkMode } = useMode()
+  const { isAuthenticated } = useAuth0()
   return (
     <>
       <MenuWrapper>
         <List
           component="div"
         >
-          <SubMenuWrapper className={!isAuthenticated && 'bw'}> 
+          <SubMenuWrapper className={!isAuthenticated && 'bw'}>
             <List component="div">
               <ListItem component="div">
                 <Button
+                  style={{ fontSize: '18px' }}
                   disableRipple
                   component={RouterLink}
                   to="/dashboards/devices"
-                  startIcon={<GridViewOutlinedIcon className={!darkMode && 'darkFonts'}/>}
+                  startIcon={<GridViewOutlinedIcon className={!darkMode && 'darkFonts'} />}
                   className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
                 >
-                  Devices
+                  {mainopen ? 'Devices' : ''}
                 </Button>
               </ListItem>
               <ListItem component="div">
@@ -212,77 +214,88 @@ function SidebarMenu() {
                   disableRipple
                   component={RouterLink}
                   to="/dashboards/media"
-                  startIcon={<SubscriptionsOutlinedIcon className={!darkMode && 'darkFonts'}/>}
+                  startIcon={<SubscriptionsOutlinedIcon className={!darkMode && 'darkFonts'} />}
                   className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
-                  Media
+                  {mainopen ? 'Media' : ''}
+
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
+                  style={{ fontSize: '18px' }}
                   disableRipple
                   component={RouterLink}
                   to="/management/playlists"
-                  startIcon={<QueueMusicOutlinedIcon className={!darkMode && 'darkFonts'}/>}
+                  startIcon={<QueueMusicOutlinedIcon className={!darkMode && 'darkFonts'} />}
                   className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
-                  Playlist
+                  {mainopen ? 'Playlist' : ''}
+
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
+                  style={{ fontSize: '18px' }}
                   disableRipple
                   component={RouterLink}
                   to="/management/profile/billing"
-                  startIcon={<DescriptionOutlinedIcon className={!darkMode && 'darkFonts'}/>}
+                  startIcon={<DescriptionOutlinedIcon className={!darkMode && 'darkFonts'} />}
                   className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
-                  Billing
+                  {mainopen ? 'Billing' : ''}
+
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
+                  style={{ fontSize: '18px' }}
                   disableRipple
                   component={RouterLink}
                   to="/management/profile/settings"
-                  startIcon={<LocalPoliceIcon className={!darkMode && 'darkFonts'}/>}
+                  startIcon={<LocalPoliceIcon className={!darkMode && 'darkFonts'} />}
                   className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
-                  Auth
+                  {mainopen ? 'Auth' : ''}
+
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
+                  style={{ fontSize: '18px' }}
                   disableRipple
                   component={RouterLink}
                   to="/components/buttons"
-                  startIcon={<SettingsIcon className={!darkMode && 'darkFonts'}/>}
+                  startIcon={<SettingsIcon className={!darkMode && 'darkFonts'} />}
                   className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
-                  Setting
+                  {mainopen ? 'Setting' : ''}
+
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
+                  style={{ fontSize: '18px' }}
                   disableRipple
                   component={RouterLink}
                   to="/components/modals"
-                  startIcon={<SupportIcon className={!darkMode && 'darkFonts'}/>}
+                  startIcon={<SupportIcon className={!darkMode && 'darkFonts'} />}
                   className={!darkMode && 'darkFonts'}
                   onClick={closeSidebar}
 
                 >
-                  Help & Support
+                  {mainopen ? 'Help & Support' : ''}
+
                 </Button>
               </ListItem>
             </List>

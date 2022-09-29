@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useContext, useState } from 'react';
 import { Box, alpha, lighten, useTheme, Fab } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -22,7 +22,6 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
         sx={{
           flex: 1,
           height: '100%',
-
           '.MuiPageTitle-wrapper': {
             background:
               theme.palette.mode === 'dark'
@@ -45,28 +44,8 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
           }
         }}
       >
-        <Header />
         <Sidebar />
-        <Box
-          className={!isAuthenticated && 'blur'}
-          sx={{
-            position: 'relative',
-            zIndex: 5,
-            display: 'block', 
-            flex: 1,
-            pt: `${theme.header.height}`,
-            [theme.breakpoints.up('lg')]: {
-              ml: `${theme.sidebar.width}`
-            }
-          }}
-        >
-          <Box className={!isAuthenticated && 'bw'} display="block" sx={{ background: !darkMode ? '#F9F9F9' : '#1E1E1E' }}>
-            <Fab onClick={() => setDarkMode(!darkMode)} color="secondary" aria-label="edit" sx={{ borderTopLeftRadius: '0', borderBottomLeftRadius: '0' }}>
-              <Brightness4Icon />
-            </Fab>
-            <Outlet />
-          </Box>
-        </Box>
+        
       </Box>
     </>
   );
