@@ -164,7 +164,7 @@ function Sidebar() {
             theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
         }}
       > */}
-      <AppBar sx={{background : darkMode ? 'black' : 'white'}} position="absolute" open={mainopen}>
+      <AppBar sx={{background : darkMode ? 'black' : 'white'}} position="sticky" open={mainopen}>
         <Box sx={{display : 'flex'}}>
           <IconButton onClick={toggleDrawer} color="primary" sx={{ color: darkMode ? 'white' : 'black' }}>
             <MenuIcon />
