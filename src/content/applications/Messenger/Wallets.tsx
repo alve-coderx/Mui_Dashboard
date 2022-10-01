@@ -80,12 +80,9 @@ const CardAddAction = styled(Card)(
 function Wallets({Item}) {
   const { darkMode} = useMode() 
   const handleDelete = () => {
-    fetch(`https://kitecast-dev-api.azurewebsites.net/api/v1/customers/media/${Item.mediaId}/Fc64280c1ef74f9c9c8adb1906704362`,
+    fetch(`https://kitecast-stg-api.azurewebsites.net/api/v1/media`,
       {
         method: 'DELETE'
-      })
-      .then((res) => {
-        alert("Deleted")
       })
   }
 
@@ -100,6 +97,7 @@ function Wallets({Item}) {
                 background: !darkMode ? 'white' : 'transparent',
                 borderRadius : '34px'
               }}
+              
             >
               <CardContent>
                 <Box
@@ -141,7 +139,7 @@ function Wallets({Item}) {
                 >
                 <Box sx={{display : 'flex',justifyContent : 'space-between',alignItems : 'center'}}>
                     <Box>
-                      <img style={{width : '100%',borderRadius : '20px'}} src='https://images.unsplash.com/photo-1642540330592-937be40f65b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80' />
+                      <img style={{width : '100%',borderRadius : '20px',maxHeight : '300px'}} src={Item.mediaUrl} />
                     </Box>
                 </Box>
                 </Box>

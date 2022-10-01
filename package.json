@@ -15,6 +15,7 @@
     "@types/react": "17.0.40",
     "@types/react-dom": "17.0.13",
     "apexcharts": "3.35.3",
+    "axios": "^0.27.2",
     "clsx": "1.1.1",
     "date-fns": "2.28.0",
     "history": "5.3.0",
@@ -35,7 +36,7 @@
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=4200 && react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint .",
