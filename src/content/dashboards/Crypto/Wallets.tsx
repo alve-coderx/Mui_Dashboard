@@ -102,7 +102,7 @@ function Wallets({ Item }) {
     e.preventDefault();
     const newDevice = {
       "id": Item.id,
-      "deviceName": name,
+      "name": name,
       "serialNumber": serial,
       "pairingCode": Item.pairingCode,
       "ownerId": "Fc64280c1ef74f9c9c8adb1906704362",
@@ -149,7 +149,7 @@ function Wallets({ Item }) {
           >
             <Tooltip title={Item.id} arrow>
               <Typography variant="h3" sx={{ color: !darkMode ? '#1E1E1E' : 'white', }} noWrap>
-                {Item.deviceName}
+                {Item.name}
               </Typography>
             </Tooltip>
             <Box>
@@ -178,7 +178,7 @@ function Wallets({ Item }) {
                   <form onSubmit={handleSubmit}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                       <Typography id="modal-modal-title" variant="h2" component="h2">
-                        Edit {Item.deviceName}
+                        Edit {Item.name}
                       </Typography>
                       <IconButton sx={{ color: darkMode ? 'white' : 'black' }} onClick={() => handleClose()}>
                         <CloseIcon />
@@ -252,7 +252,6 @@ function Wallets({ Item }) {
                   </Typography >
                   <Tooltip title={Item.serialNumber}>
                     <Typography sx={{ fontSize: '15px', color: !darkMode ? 'black' : 'white', fontWeight: 'bolder' }}>
-                      {Item.serialNumber.slice(0, 15)}..
                     </Typography>
                   </Tooltip>
                 </Box>

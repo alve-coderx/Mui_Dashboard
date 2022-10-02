@@ -30,14 +30,16 @@ function PageHeader() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const time = new Date().toLocaleTimeString()
     const newDevice = {
-      "deviceName": name,
-      "serialNumber": serial,
+      "customerId": "Fc64280c1ef74f9c9c8adb1906704362",
+      "name": name,
       "pairingCode": pairingCode,
-      "ownerId": "Fc64280c1ef74f9c9c8adb1906704362"
+      "serialNumber": serial,
+      "ContentCheckTime" : time
     }
-    fetch("https://kitecast-dev-api.azurewebsites.net/api/v1/customers/players", {
-      method: "POST",
+    fetch("https://kitecast-stg-api.azurewebsites.net/api/v1/devices", {
+      method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newDevice),
     })

@@ -15,11 +15,14 @@ function DashboardCrypto() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://kitecast-dev-api.azurewebsites.net/api/v1/customers/players/Fc64280c1ef74f9c9c8adb1906704362')
+    fetch('https://kitecast-stg-api.azurewebsites.net/api/v1/platform-data/Fc64280c1ef74f9c9c8adb1906704362')
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data?.players?.mediaPlayers)
+        console.log(data?.players?.mediaPlayers)
+      })
       .catch((err) => console.log(err));
-  }, [products]);
+  }, []);
   return (
     <div style={{ minHeight: '90vh' }}>
       <Helmet>
